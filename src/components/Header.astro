@@ -11,6 +11,13 @@ const t = await import(`../i18n/${lang}.json`);
 
 const otherLang = lang === 'en' ? 'pl' : 'en';
 const otherLangPath = lang === 'en' ? '/pl' : '/';
+
+const sections = [
+  { id: 'about', label: t.about.title },
+  { id: 'projects', label: t.projects.title },
+  { id: 'skills', label: t.skills.title },
+  { id: 'contact', label: t.contact.title },
+];
 ---
 
 <header>
@@ -19,6 +26,20 @@ const otherLangPath = lang === 'en' ? '/pl' : '/';
       <a href={lang === 'en' ? '/' : '/pl'} class="logo">
         KH
       </a>
+      
+      <ul class="section-nav-list">
+        {sections.map((section) => (
+          <li>
+            <a 
+              href={`#${section.id}`} 
+              class="section-nav-link"
+              data-section={section.id}
+            >
+              {section.label}
+            </a>
+          </li>
+        ))}
+      </ul>
       
       <div class="nav-right">
         <div class="language-switcher">
@@ -35,6 +56,116 @@ const otherLangPath = lang === 'en' ? '/pl' : '/';
     </div>
   </nav>
 </header>
+
+<script>
+  // Scroll spy implementation
+  function initScrollSpy() {
+    const links = document.querySelectorAll('.section-nav-link');
+    const sections = Array.from(links).map(link => {
+      const id = link.getAttribute('data-section');
+      return document.getElementById(id);
+    }).filter(Boolean);
+
+    if (sections.length === 0) return;
+
+    let ticking = false;
+    let isScrollingProgrammatically = false;
+    let scrollTimeout: number | null = null;
+
+    function setActiveLink(sectionId: string) {
+      links.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-section') === sectionId) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    function updateActiveLink() {
+      if (isScrollingProgrammatically) {
+        ticking = false;
+        return;
+      }
+
+      const headerHeight = 70;
+      const scrollPos = window.scrollY + headerHeight + 50;
+
+      let currentSection = '';
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        const sectionTop = section.offsetTop;
+        
+        if (scrollPos >= sectionTop) {
+          currentSection = section.id;
+          break;
+        }
+      }
+
+      if (!currentSection && window.scrollY < 200) {
+        currentSection = sections[0]?.id || '';
+      }
+
+      if (currentSection) {
+        setActiveLink(currentSection);
+      }
+
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveLink);
+        ticking = true;
+      }
+
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      scrollTimeout = window.setTimeout(() => {
+        isScrollingProgrammatically = false;
+        updateActiveLink();
+      }, 100);
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-section');
+        const target = document.getElementById(targetId);
+        
+        if (target) {
+          setActiveLink(targetId);
+          isScrollingProgrammatically = true;
+          
+          const headerHeight = 70;
+          const targetPosition = target.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+
+          setTimeout(() => {
+            isScrollingProgrammatically = false;
+            updateActiveLink();
+          }, 800);
+        }
+      });
+    });
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateActiveLink();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollSpy);
+  } else {
+    initScrollSpy();
+  }
+
+  document.addEventListener('astro:page-load', initScrollSpy);
+</script>
 
 <style>
   header {
@@ -63,6 +194,7 @@ const otherLangPath = lang === 'en' ? '/pl' : '/';
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--spacing-md);
   }
   
   .logo {
@@ -75,6 +207,7 @@ const otherLangPath = lang === 'en' ? '/pl' : '/';
     background-clip: text;
     letter-spacing: -0.02em;
     transition: transform 0.2s ease;
+    flex-shrink: 0;
   }
   
   @supports not (-webkit-background-clip: text) {
@@ -87,11 +220,71 @@ const otherLangPath = lang === 'en' ? '/pl' : '/';
   .logo:hover {
     transform: scale(1.05);
   }
+
+  .section-nav-list {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    justify-content: center;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .section-nav-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .section-nav-list li {
+    flex-shrink: 0;
+  }
+
+  .section-nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+    border-radius: 0.375rem;
+  }
+
+  .section-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-accent-gradient);
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+  }
+
+  .section-nav-link:hover {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+  }
+
+  .section-nav-link.active {
+    color: var(--color-accent);
+  }
+
+  .section-nav-link.active::after {
+    transform: scaleX(1);
+  }
   
   .nav-right {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+    flex-shrink: 0;
   }
   
   .language-switcher a {
@@ -108,6 +301,12 @@ const otherLangPath = lang === 'en' ? '/pl' : '/';
   .language-switcher a.active {
     background: var(--color-accent-gradient);
     color: white;
+  }
+
+  @media (max-width: 1024px) {
+    .section-nav-list {
+      display: none;
+    }
   }
   
   @media print {

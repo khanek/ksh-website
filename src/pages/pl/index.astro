@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import SectionNav from '../../components/SectionNav.astro';
 import Hero from '../../components/Hero.astro';
 import About from '../../components/About.astro';
 import Skills from '../../components/Skills.astro';
@@ -16,7 +15,6 @@ const t = await import('../../i18n/pl.json');
 
 <Layout lang={lang} title={t.meta.title} description={t.meta.description}>
   <Header lang={lang} currentPath={currentPath} />
-  <SectionNav lang={lang} />
   <main>
     <Hero lang={lang} />
     <About lang={lang} />
