@@ -1,0 +1,77 @@
+---
+---
+
+<button 
+  id="theme-toggle" 
+  class="theme-toggle"
+  aria-label="Toggle theme"
+  type="button"
+>
+  <span class="theme-icon">🌙</span>
+</button>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = themeToggle?.querySelector('.theme-icon');
+  
+  // Get initial theme from localStorage or system preference
+  function getInitialTheme() {
+    const stored = localStorage.getItem('theme');
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  
+  // Set theme
+  function setTheme(theme: string) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    if (themeIcon) {
+      themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+  }
+  
+  // Initialize theme
+  const currentTheme = getInitialTheme();
+  setTheme(currentTheme);
+  
+  // Toggle theme on click
+  themeToggle?.addEventListener('click', () => {
+    const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+  
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      setTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+</script>
+
+<style>
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.2rem;
+    padding: 0;
+  }
+  
+  .theme-toggle:hover {
+    background-color: var(--color-card-bg);
+    border-color: var(--color-accent);
+  }
+  
+  .theme-icon {
+    display: block;
+    line-height: 1;
+  }
+</style>

@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "Krystian Hanek - Lead Backend Developer",
+    "description": "Backend developer z ponad 10-letnim doświadczeniem. Specjalizacja w Django, AWS i skalowalnej architekturze systemów."
+  },
+  "nav": {
+    "about": "O mnie",
+    "skills": "Umiejętności",
+    "projects": "Projekty",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "name": "Krystian Hanek",
+    "title": "Lead Backend Developer",
+    "subtitle": "Backend-first developer z ponad 10-letnim doświadczeniem w budowaniu skalowalnych systemów"
+  },
+  "about": {
+    "title": "O mnie",
+    "content": "Jestem developerem z ponad 10-letnim doświadczeniem. Większość czasu zawodowego spędziłem w Apptension, software house z Poznania, gdzie pracowałem nad różnego rodzaju projektami opartymi na frameworku Django, często Celery, oraz rozwiązaniach chmurowych AWS, w tym AWS ECS, RDS, SQS, funkcje Lambda. Pracowałem z różnymi zespołami z różnych krajów takich jak USA, UK, RPA i Polska.",
+    "content2": "Zacząłem karierę w startupie, gdzie miałem okazję uczyć się od podstaw i budować swoje umiejętności techniczne na wyzwaniach, które były przede mną stawiane."
+  },
+  "skills": {
+    "title": "Fokus techniczny",
+    "backend": {
+      "title": "Backend",
+      "items": [
+        "projektowanie API, logika biznesowa",
+        "modelowanie danych, uwierzytelnianie i autoryzacja",
+        "optymalizacja wydajności"
+      ]
+    },
+    "cloud": {
+      "title": "Cloud (AWS)",
+      "items": [
+        "Infrastructure as Code (AWS CDK)",
+        "serverless i zarządzane serwisy",
+        "monitoring i obserwowalność"
+      ]
+    },
+    "architecture": {
+      "title": "Architektura",
+      "items": [
+        "Mikrousługi",
+        "modularne monolity",
+        "komponenty oparte na zdarzeniach"
+      ]
+    },
+    "quality": {
+      "title": "Jakość i niezawodność",
+      "items": [
+        "Testy jednostkowe, integracyjne",
+        "Testy obciążeniowe i wydajnościowe; obsługa skoków ruchu"
+      ]
+    }
+  },
+  "projects": {
+    "title": "Wybrane projekty",
+    "dmw": {
+      "name": "DMW",
+      "description": "Projektowałem i utrzymywałem serwisy backendowe oraz mechanizmy autoryzacji dla systemu produkcyjnego. Zarządzałem infrastrukturą chmurową używając AWS CDK, aby wspierać bezpieczne wdrożenia, skalowanie poziome i stabilne środowiska uruchomieniowe. Implementowałem komponenty raportujące ściśle powiązane z logiką domenową backendu."
+    },
+    "saas": {
+      "name": "Internal SaaS Boilerplate",
+      "description": "Wprowadziłem obserwowalność backendu poprzez integrację Prometheus i Grafana, umożliwiając głębszy wgląd w zachowanie aplikacji, wąskie gardła wydajnościowe i wzorce błędów w produkcji."
+    },
+    "kandua": {
+      "name": "Kandua (dawniej Home+), Santam",
+      "description": "Projektowałem architekturę backendową i przepływy danych dla systemu bezserwerowego opartego na mikrousługach. Implementowałem komunikację między serwisami, granice serwisów oparte na domenie oraz integracje z zewnętrznymi dostawcami (płatności, media, służby ratunkowe)."
+    },
+    "worldexpo": {
+      "name": "World Expo, Dogstudio",
+      "description": "Implementowałem funkcje backendowe, w tym ewolucję schematu bazy danych, rozwój API oraz integrację z AWS Elasticsearch. Skupiłem się na zapytaniach danych, wydajności i utrzymywalności w backendzie opartym na TypeScript."
+    },
+    "questpass": {
+      "name": "Questpass (dawniej Adquesto)",
+      "description": "Systemy backendowe wspierające platformy reklamowe poprzez wprowadzenie nowych typów mediów (wideo), integrację AWS MediaConvert oraz rozszerzenie endpointów raportowania i analityki. Optymalizowałem systemy backendowe do obsługi wysokich i nieprzewidywalnych skoków ruchu poprzez strategie cache'owania, ulepszenia architektoniczne i systematyczne testy obciążeniowe. Projektowałem i wykonywałem scenariusze testów wydajnościowych i stresowych."
+    },
+    "less": {
+      "name": "LESS (dawniej CountMe)",
+      "description": "Budowałem i rozwijałem API backendowe dla spersonalizowanej treści, płatności i przepływów weryfikacyjnych. Implementowałem i później migrowałem mechanizmy uwierzytelniania (Auth0 → własne rozwiązanie). Poprawiłem odporność systemu poprzez optymalizacje backendowe i kompleksowe testowanie."
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "email": "krystian.hanek@gmail.com",
+    "phone": "+48 737 526 507",
+    "location": "Poznań, Polska"
+  },
+  "print": {
+    "button": "Drukuj jako CV",
+    "download": "Pobierz PDF"
+  }
+}

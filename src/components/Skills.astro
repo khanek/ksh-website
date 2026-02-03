@@ -1,0 +1,134 @@
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = await import(`../i18n/${lang}.json`);
+---
+
+<section class="skills" id="skills">
+  <div class="container">
+    <div class="content">
+      <h2>{t.skills.title}</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>{t.skills.backend.title}</h3>
+          <ul>
+            {t.skills.backend.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>{t.skills.cloud.title}</h3>
+          <ul>
+            {t.skills.cloud.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>{t.skills.architecture.title}</h3>
+          <ul>
+            {t.skills.architecture.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>{t.skills.quality.title}</h3>
+          <ul>
+            {t.skills.quality.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--color-card-bg);
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+  }
+  
+  .skill-category {
+    background-color: var(--color-bg);
+    padding: var(--spacing-md);
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+  }
+  
+  .skill-category h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-accent);
+  }
+  
+  .skill-category ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .skill-category li {
+    padding: var(--spacing-xs) 0;
+    color: var(--color-text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .skill-category li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+  
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media print {
+    .skills {
+      background-color: transparent;
+      padding: 0.5cm 0;
+    }
+    
+    .skills-grid {
+      display: block;
+      margin-top: 0.5cm;
+    }
+    
+    .skill-category {
+      background-color: transparent;
+      border: none;
+      padding: 0.3cm 0;
+      page-break-inside: avoid;
+    }
+    
+    .skill-category h3 {
+      font-size: 12pt;
+      margin-bottom: 0.2cm;
+    }
+    
+    .skill-category li {
+      font-size: 10pt;
+      padding: 0.1cm 0 0.1cm 0.5cm;
+    }
+  }
+</style>

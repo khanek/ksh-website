@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "Krystian Hanek - Lead Backend Developer",
+    "description": "Backend developer with over 10 years of experience. Specialized in Django, AWS, and scalable system architecture."
+  },
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "Krystian Hanek",
+    "title": "Lead Backend Developer",
+    "subtitle": "Backend-first developer with over 10 years of experience building scalable systems"
+  },
+  "about": {
+    "title": "About",
+    "content": "I am a developer with over 10 years of experience. I spent most of my professional time at Apptension, a software house based in Poznan, where I worked on all kinds of projects based on Django framework, often Celery, and AWS cloud solutions, including AWS ECS, RDS, SQS, Lambda functions. I have worked with different teams from different countries like USA, UK, South Africa and Poland.",
+    "content2": "I started my career in a startup, where I had the opportunity to learn from the ground up and build my technical skills on the challenges that were put in front of me."
+  },
+  "skills": {
+    "title": "Technical Focus",
+    "backend": {
+      "title": "Backend",
+      "items": [
+        "API design, business logic",
+        "data modeling, authentication & authorization",
+        "performance optimization"
+      ]
+    },
+    "cloud": {
+      "title": "Cloud (AWS)",
+      "items": [
+        "Infrastructure as Code (AWS CDK)",
+        "serverless & managed services",
+        "monitoring & observability"
+      ]
+    },
+    "architecture": {
+      "title": "Architecture",
+      "items": [
+        "Microservices",
+        "modular monoliths",
+        "event-driven components"
+      ]
+    },
+    "quality": {
+      "title": "Quality & Reliability",
+      "items": [
+        "Unit, integration tests",
+        "Volume, and load testing; traffic spike handling"
+      ]
+    }
+  },
+  "projects": {
+    "title": "Selected Projects",
+    "dmw": {
+      "name": "DMW",
+      "description": "Designed and maintained backend services and authorization mechanisms for a production system. Owned cloud infrastructure using AWS CDK to support secure deployments, horizontal scaling, and stable runtime environments. Implemented reporting components tightly coupled with backend domain logic."
+    },
+    "saas": {
+      "name": "Internal SaaS Boilerplate",
+      "description": "Introduced backend observability by integrating Prometheus and Grafana, enabling deeper insight into application behavior, performance bottlenecks, and error patterns in production."
+    },
+    "kandua": {
+      "name": "Kandua (formerly Home+), Santam",
+      "description": "Designed backend architecture and data flows for a serverless, microservice-based system. Implemented inter-service communication, domain-driven service boundaries, and integrations with external providers (payments, utilities, emergency services)."
+    },
+    "worldexpo": {
+      "name": "World Expo, Dogstudio",
+      "description": "Implemented backend features including database schema evolution, API development, and AWS Elasticsearch integration. Focused on data querying, performance, and maintainability in a TypeScript-based backend."
+    },
+    "questpass": {
+      "name": "Questpass (formerly Adquesto)",
+      "description": "Backend systems supporting advertising platforms by introducing new media types (video), integrating AWS MediaConvert, and enhancing reporting and analytics endpoints. Optimized backend systems to handle high and unpredictable traffic peaks through caching strategies, architectural improvements, and systematic load testing. Designed and executed performance and stress testing scenarios."
+    },
+    "less": {
+      "name": "LESS (formerly CountMe)",
+      "description": "Built and evolved backend APIs for personalized content, payments, and verification workflows. Implemented and later migrated authentication mechanisms (Auth0 → custom solution). Improved system resiliency through backend optimizations and comprehensive testing."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "email": "krystian.hanek@gmail.com",
+    "phone": "+48 737 526 507",
+    "location": "Poznań, Poland"
+  },
+  "print": {
+    "button": "Print as CV",
+    "download": "Download PDF"
+  }
+}

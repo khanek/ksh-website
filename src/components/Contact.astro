@@ -1,0 +1,105 @@
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = await import(`../i18n/${lang}.json`);
+---
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="content">
+      <h2>{t.contact.title}</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <strong>Email:</strong>
+          <a href={`mailto:${t.contact.email}`}>{t.contact.email}</a>
+        </div>
+        <div class="contact-item">
+          <strong>Phone:</strong>
+          <a href={`tel:${t.contact.phone.replace(/\s/g, '')}`}>{t.contact.phone}</a>
+        </div>
+        <div class="contact-item">
+          <strong>Location:</strong>
+          <span>{t.contact.location}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--color-card-bg);
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+  }
+  
+  .contact-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+  }
+  
+  .contact-item strong {
+    color: var(--color-text);
+    min-width: 80px;
+  }
+  
+  .contact-item a,
+  .contact-item span {
+    color: var(--color-text-secondary);
+  }
+  
+  @media (max-width: 768px) {
+    .contact-info {
+      gap: var(--spacing-xs);
+    }
+    
+    .contact-item {
+      font-size: var(--font-size-base);
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .contact-item strong {
+      min-width: auto;
+    }
+  }
+  
+  @media print {
+    .contact {
+      background-color: transparent;
+      padding: 0.5cm 0;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 0.5cm;
+      font-size: 10pt;
+    }
+    
+    .contact-item {
+      flex-direction: column;
+      gap: 0.1cm;
+    }
+    
+    .contact-item strong {
+      font-weight: 600;
+    }
+    
+    .contact-item a,
+    .contact-item span {
+      color: #000;
+    }
+  }
+</style>

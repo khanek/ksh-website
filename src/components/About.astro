@@ -1,0 +1,43 @@
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = await import(`../i18n/${lang}.json`);
+---
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="content">
+      <h2>{t.about.title}</h2>
+      <div class="about-content">
+        <p>{t.about.content}</p>
+        <p>{t.about.content2}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .about-content p {
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-lg);
+    line-height: 1.7;
+  }
+  
+  @media print {
+    .about {
+      padding: 0.5cm 0;
+    }
+    
+    .about-content p {
+      margin-bottom: 0.4cm;
+      font-size: 11pt;
+    }
+  }
+</style>

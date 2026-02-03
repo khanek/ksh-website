@@ -1,0 +1,112 @@
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = await import(`../i18n/${lang}.json`);
+---
+
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="content">
+      <h2>{t.projects.title}</h2>
+      <div class="projects-list">
+        <div class="project-item">
+          <h3>{t.projects.dmw.name}</h3>
+          <p>{t.projects.dmw.description}</p>
+        </div>
+        
+        <div class="project-item">
+          <h3>{t.projects.saas.name}</h3>
+          <p>{t.projects.saas.description}</p>
+        </div>
+        
+        <div class="project-item">
+          <h3>{t.projects.kandua.name}</h3>
+          <p>{t.projects.kandua.description}</p>
+        </div>
+        
+        <div class="project-item">
+          <h3>{t.projects.worldexpo.name}</h3>
+          <p>{t.projects.worldexpo.description}</p>
+        </div>
+        
+        <div class="project-item">
+          <h3>{t.projects.questpass.name}</h3>
+          <p>{t.projects.questpass.description}</p>
+        </div>
+        
+        <div class="project-item">
+          <h3>{t.projects.less.name}</h3>
+          <p>{t.projects.less.description}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .projects-list {
+    margin-top: var(--spacing-md);
+  }
+  
+  .project-item {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .project-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .project-item h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-accent);
+  }
+  
+  .project-item p {
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+  
+  @media print {
+    .projects {
+      padding: 0.5cm 0;
+    }
+    
+    .projects-list {
+      margin-top: 0.5cm;
+    }
+    
+    .project-item {
+      margin-bottom: 0.5cm;
+      padding-bottom: 0.4cm;
+      border-bottom: 0.5pt solid #000;
+      page-break-inside: avoid;
+    }
+    
+    .project-item:last-child {
+      border-bottom: none;
+    }
+    
+    .project-item h3 {
+      font-size: 12pt;
+      margin-bottom: 0.2cm;
+    }
+    
+    .project-item p {
+      font-size: 10pt;
+      margin-bottom: 0.3cm;
+    }
+  }
+</style>

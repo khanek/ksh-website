@@ -1,0 +1,81 @@
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = await import(`../i18n/${lang}.json`);
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>{t.hero.name}</h1>
+      <h2>{t.hero.title}</h2>
+      <p class="hero-subtitle">{t.hero.subtitle}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+  }
+  
+  .hero-content h1 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text);
+  }
+  
+  .hero-content h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--spacing-lg) 0;
+    }
+    
+    .hero-content h1 {
+      font-size: var(--font-size-3xl);
+    }
+    
+    .hero-content h2 {
+      font-size: var(--font-size-xl);
+    }
+  }
+  
+  @media print {
+    .hero {
+      padding: 0.5cm 0;
+      text-align: left;
+    }
+    
+    .hero-content h1 {
+      font-size: 24pt;
+      margin-bottom: 0.2cm;
+    }
+    
+    .hero-content h2 {
+      font-size: 14pt;
+      margin-bottom: 0.3cm;
+    }
+    
+    .hero-subtitle {
+      font-size: 11pt;
+      margin-bottom: 0.5cm;
+    }
+  }
+</style>

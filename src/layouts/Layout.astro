@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+import '../styles/print.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang: string;
+}
+
+const { title, description, lang } = Astro.props;
+const t = await import(`../i18n/${lang}.json`);
+
+const pageTitle = title || t.meta.title;
+const pageDescription = description || t.meta.description;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={pageDescription} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      // Initialize theme immediately to prevent flash
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

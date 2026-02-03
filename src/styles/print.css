@@ -1,0 +1,116 @@
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  body {
+    font-size: 11pt;
+    line-height: 1.4;
+    color: #000;
+    background: #fff;
+  }
+  
+  /* Hide navigation and interactive elements */
+  header,
+  nav,
+  .theme-toggle,
+  .print-button,
+  .language-switcher {
+    display: none !important;
+  }
+  
+  /* Page setup */
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+  
+  /* Typography for print */
+  h1 {
+    font-size: 24pt;
+    page-break-after: avoid;
+    margin-bottom: 0.5cm;
+  }
+  
+  h2 {
+    font-size: 18pt;
+    page-break-after: avoid;
+    margin-top: 1cm;
+    margin-bottom: 0.5cm;
+    border-bottom: 1pt solid #000;
+    padding-bottom: 0.2cm;
+  }
+  
+  h3 {
+    font-size: 14pt;
+    page-break-after: avoid;
+    margin-top: 0.8cm;
+    margin-bottom: 0.3cm;
+  }
+  
+  p {
+    margin-bottom: 0.4cm;
+    orphans: 3;
+    widows: 3;
+  }
+  
+  /* Sections */
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 0.8cm;
+  }
+  
+  /* Links */
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+  
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+  }
+  
+  /* Contact info */
+  .contact-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1cm;
+    font-size: 10pt;
+  }
+  
+  /* Skills grid */
+  .skills-grid {
+    display: block !important;
+  }
+  
+  .skill-category {
+    page-break-inside: avoid;
+    margin-bottom: 0.6cm;
+  }
+  
+  /* Projects */
+  .project-item {
+    page-break-inside: avoid;
+    margin-bottom: 0.6cm;
+  }
+  
+  /* Avoid breaking */
+  .hero,
+  .about-content {
+    page-break-inside: avoid;
+  }
+  
+  /* Print URL */
+  .print-url {
+    display: block;
+    font-size: 9pt;
+    color: #666;
+    margin-top: 1cm;
+    text-align: center;
+  }
+}

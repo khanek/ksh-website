@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import PrintButton from '../components/PrintButton.astro';
+
+const lang = 'en';
+const currentPath = '/';
+const t = await import('../i18n/en.json');
+---
+
+<Layout lang={lang} title={t.meta.title} description={t.meta.description}>
+  <Header lang={lang} currentPath={currentPath} />
+  <main>
+    <Hero lang={lang} />
+    <About lang={lang} />
+    <Skills lang={lang} />
+    <Projects lang={lang} />
+    <Contact lang={lang} />
+    <div class="container">
+      <div class="content" style="padding: var(--spacing-lg) 0; text-align: center;">
+        <PrintButton lang={lang} />
+      </div>
+    </div>
+  </main>
+  <footer class="container" style="padding: var(--spacing-md) 0; text-align: center; border-top: 1px solid var(--color-border); margin-top: var(--spacing-xl);">
+    <p style="color: var(--color-text-secondary); font-size: var(--font-size-sm);">
+      © {new Date().getFullYear()} Krystian Hanek
+    </p>
+  </footer>
+</Layout>
+
+<style>
+  main {
+    min-height: calc(100vh - 200px);
+  }
+  
+  @media print {
+    footer {
+      display: none !important;
+    }
+  }
+</style>
