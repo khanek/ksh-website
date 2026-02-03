@@ -65,32 +65,68 @@
     "title": "Professional Experience",
     "dmw": {
       "name": "DMW",
+      "summary": "Backend ownership and infrastructure-as-code for a secure, scalable production platform.",
       "description": "Designed and maintained backend services and authorization mechanisms for a production system. Owned cloud infrastructure using AWS CDK to support secure deployments, horizontal scaling, and stable runtime environments. Implemented reporting components tightly coupled with backend domain logic.",
+      "highlights": [
+        "Designed and maintained authorization and access-control mechanisms",
+        "Owned AWS CDK infrastructure to enable repeatable deployments and horizontal scaling",
+        "Delivered reporting features aligned with backend domain logic"
+      ],
       "technologies": ["Django", "AWS CDK", "PostgreSQL", "AWS ECS", "AWS RDS"]
     },
     "saas": {
       "name": "Internal SaaS Boilerplate",
+      "summary": "Established observability standards for an internal backend platform.",
       "description": "Introduced backend observability by integrating Prometheus and Grafana, enabling deeper insight into application behavior, performance bottlenecks, and error patterns in production.",
+      "highlights": [
+        "Integrated Prometheus metrics and Grafana dashboards",
+        "Improved visibility into performance bottlenecks and error patterns",
+        "Enabled faster incident response with actionable monitoring"
+      ],
       "technologies": ["Django", "Prometheus", "Grafana", "Docker"]
     },
     "kandua": {
       "name": "Kandua (formerly Home+), Santam",
+      "summary": "Designed data flows and service boundaries for a serverless microservice system.",
       "description": "Designed backend architecture and data flows for a serverless, microservice-based system. Implemented inter-service communication, domain-driven service boundaries, and integrations with external providers (payments, utilities, emergency services).",
+      "highlights": [
+        "Defined domain-driven service boundaries and inter-service communication",
+        "Implemented integrations with external providers (payments, utilities, emergency services)",
+        "Built event-driven components with reliability and maintainability in mind"
+      ],
       "technologies": ["AWS Lambda", "Microservices", "Serverless", "AWS SQS", "Django"]
     },
     "worldexpo": {
       "name": "World Expo, Dogstudio",
+      "summary": "Implemented TypeScript backend features and search integration for a content-heavy platform.",
       "description": "Implemented backend features including database schema evolution, API development, and AWS Elasticsearch integration. Focused on data querying, performance, and maintainability in a TypeScript-based backend.",
+      "highlights": [
+        "Developed APIs and managed database schema evolution",
+        "Integrated AWS Elasticsearch to support fast and flexible search",
+        "Optimized queries and code structure for long-term maintainability"
+      ],
       "technologies": ["TypeScript", "AWS Elasticsearch", "Node.js", "PostgreSQL"]
     },
     "questpass": {
       "name": "Questpass (formerly Adquesto)",
+      "summary": "Scaled backend for high-traffic advertising workloads, including video processing and reporting.",
       "description": "Backend systems supporting advertising platforms by introducing new media types (video), integrating AWS MediaConvert, and enhancing reporting and analytics endpoints. Optimized backend systems to handle high and unpredictable traffic peaks through caching strategies, architectural improvements, and systematic load testing. Designed and executed performance and stress testing scenarios.",
+      "highlights": [
+        "Introduced a new video media type and integrated AWS MediaConvert",
+        "Optimized caching and architecture to handle unpredictable traffic spikes",
+        "Designed and executed load and stress testing scenarios"
+      ],
       "technologies": ["Django", "AWS MediaConvert", "Redis", "Celery", "Load Testing"]
     },
     "less": {
       "name": "LESS (formerly CountMe)",
+      "summary": "Evolved backend APIs for payments, verification, and personalized content; delivered auth migration.",
       "description": "Built and evolved backend APIs for personalized content, payments, and verification workflows. Implemented and later migrated authentication mechanisms (Auth0 → custom solution). Improved system resiliency through backend optimizations and comprehensive testing.",
+      "highlights": [
+        "Built and extended APIs supporting payments and verification workflows",
+        "Migrated authentication from Auth0 to a custom solution",
+        "Improved resiliency through performance work and comprehensive testing"
+      ],
       "technologies": ["Django", "Auth0", "PostgreSQL", "REST API", "Payment Integration"]
     }
   },

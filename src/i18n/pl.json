@@ -65,32 +65,68 @@
     "title": "Doświadczenie zawodowe",
     "dmw": {
       "name": "DMW",
+      "summary": "Odpowiedzialność za backend i IaC dla bezpiecznej, skalowalnej platformy produkcyjnej.",
       "description": "Projektowałem i utrzymywałem serwisy backendowe oraz mechanizmy autoryzacji dla systemu produkcyjnego. Zarządzałem infrastrukturą chmurową używając AWS CDK, aby wspierać bezpieczne wdrożenia, skalowanie poziome i stabilne środowiska uruchomieniowe. Implementowałem komponenty raportujące ściśle powiązane z logiką domenową backendu.",
+      "highlights": [
+        "Projekt i utrzymanie mechanizmów autoryzacji oraz kontroli dostępu",
+        "Utrzymanie infrastruktury w AWS CDK: powtarzalne wdrożenia i skalowanie poziome",
+        "Dostarczenie komponentów raportowania spójnych z logiką domenową"
+      ],
       "technologies": ["Django", "AWS CDK", "PostgreSQL", "AWS ECS", "AWS RDS"]
     },
     "saas": {
       "name": "Internal SaaS Boilerplate",
+      "summary": "Ustanowienie standardu obserwowalności dla wewnętrznej platformy backendowej.",
       "description": "Wprowadziłem obserwowalność backendu poprzez integrację Prometheus i Grafana, umożliwiając głębszy wgląd w zachowanie aplikacji, wąskie gardła wydajnościowe i wzorce błędów w produkcji.",
+      "highlights": [
+        "Integracja metryk Prometheus oraz dashboardów w Grafana",
+        "Lepsza widoczność wąskich gardeł wydajności i wzorców błędów",
+        "Szybsza reakcja na incydenty dzięki użytecznym alertom i metrykom"
+      ],
       "technologies": ["Django", "Prometheus", "Grafana", "Docker"]
     },
     "kandua": {
       "name": "Kandua (dawniej Home+), Santam",
+      "summary": "Projekt przepływów danych i granic serwisów dla systemu serverless opartego o mikrousługi.",
       "description": "Projektowałem architekturę backendową i przepływy danych dla systemu bezserwerowego opartego na mikrousługach. Implementowałem komunikację między serwisami, granice serwisów oparte na domenie oraz integracje z zewnętrznymi dostawcami (płatności, media, służby ratunkowe).",
+      "highlights": [
+        "Wyznaczenie granic serwisów w podejściu domenowym i komunikacji między nimi",
+        "Integracje z dostawcami zewnętrznymi (płatności, media, służby ratunkowe)",
+        "Elementy event-driven z naciskiem na niezawodność i utrzymywalność"
+      ],
       "technologies": ["AWS Lambda", "Microservices", "Serverless", "AWS SQS", "Django"]
     },
     "worldexpo": {
       "name": "World Expo, Dogstudio",
+      "summary": "Implementacja funkcji backendowych w TypeScript oraz integracji wyszukiwarki dla platformy contentowej.",
       "description": "Implementowałem funkcje backendowe, w tym ewolucję schematu bazy danych, rozwój API oraz integrację z AWS Elasticsearch. Skupiłem się na zapytaniach danych, wydajności i utrzymywalności w backendzie opartym na TypeScript.",
+      "highlights": [
+        "Rozwój API i ewolucja schematu bazy danych",
+        "Integracja AWS Elasticsearch dla wydajnego wyszukiwania",
+        "Optymalizacja zapytań i struktury kodu pod długoterminowe utrzymanie"
+      ],
       "technologies": ["TypeScript", "AWS Elasticsearch", "Node.js", "PostgreSQL"]
     },
     "questpass": {
       "name": "Questpass (dawniej Adquesto)",
+      "summary": "Skalowanie backendu dla wysokiego ruchu: wideo processing i raportowanie.",
       "description": "Systemy backendowe wspierające platformy reklamowe poprzez wprowadzenie nowych typów mediów (wideo), integrację AWS MediaConvert oraz rozszerzenie endpointów raportowania i analityki. Optymalizowałem systemy backendowe do obsługi wysokich i nieprzewidywalnych skoków ruchu poprzez strategie cache'owania, ulepszenia architektoniczne i systematyczne testy obciążeniowe. Projektowałem i wykonywałem scenariusze testów wydajnościowych i stresowych.",
+      "highlights": [
+        "Wdrożenie obsługi wideo oraz integracja AWS MediaConvert",
+        "Optymalizacje cache i architektury pod nieprzewidywalne skoki ruchu",
+        "Projekt i wykonanie testów obciążeniowych oraz stresowych"
+      ],
       "technologies": ["Django", "AWS MediaConvert", "Redis", "Celery", "Load Testing"]
     },
     "less": {
       "name": "LESS (dawniej CountMe)",
+      "summary": "Rozwój API dla płatności, weryfikacji i personalizacji; migracja auth.",
       "description": "Budowałem i rozwijałem API backendowe dla spersonalizowanej treści, płatności i przepływów weryfikacyjnych. Implementowałem i później migrowałem mechanizmy uwierzytelniania (Auth0 → własne rozwiązanie). Poprawiłem odporność systemu poprzez optymalizacje backendowe i kompleksowe testowanie.",
+      "highlights": [
+        "Rozbudowa API dla płatności i procesów weryfikacyjnych",
+        "Migracja uwierzytelniania z Auth0 do własnego rozwiązania",
+        "Poprawa odporności poprzez optymalizacje i kompleksowe testy"
+      ],
       "technologies": ["Django", "Auth0", "PostgreSQL", "REST API", "Payment Integration"]
     }
   },

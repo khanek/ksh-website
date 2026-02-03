@@ -20,7 +20,7 @@ Minimalistyczna, dwujęzyczna strona portfolio z możliwością druku do PDF.
 
 ```bash
 # Zainstaluj zależności
-npm install
+ ę
 
 # Uruchom serwer deweloperski
 npm run dev

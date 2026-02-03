@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
   /* Light theme */
-  --color-bg: #fafafa;
+  --color-bg: #fbfbff;
   --color-text: #18181b;
   --color-text-secondary: #71717a;
-  --color-accent: #2563eb;
-  --color-accent-hover: #7c3aed;
-  --color-accent-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  --color-accent: #6d28d9; /* violet-700 */
+  --color-accent-2: #f97316; /* orange-500 */
+  --color-accent-hover: #5b21b6; /* violet-800 */
+  --color-accent-gradient: linear-gradient(135deg, #6d28d9 0%, #f97316 100%);
   --color-border: #e4e4e7;
   --color-card-bg: #ffffff;
   --color-shadow: rgba(0, 0, 0, 0.05);
@@ -37,8 +40,10 @@
   --color-bg: #0f172a;
   --color-text: #f1f5f9;
   --color-text-secondary: #94a3b8;
-  --color-accent: #3b82f6;
-  --color-accent-hover: #60a5fa;
+  --color-accent: #a78bfa; /* violet-300 */
+  --color-accent-2: #fdba74; /* orange-300 */
+  --color-accent-hover: #c4b5fd; /* violet-200 */
+  --color-accent-gradient: linear-gradient(135deg, #a78bfa 0%, #fdba74 100%);
   --color-border: #1e293b;
   --color-card-bg: #1e293b;
 }
@@ -48,8 +53,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 html {
   scroll-behavior: smooth;
