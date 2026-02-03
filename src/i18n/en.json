@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Krystian Hanek - Lead Backend Developer",
-    "description": "Backend developer with over 10 years of experience. Specialized in Django, AWS, and scalable system architecture."
+    "title": "Krystian Hanek - Senior Backend Engineer",
+    "description": "Senior Backend Engineer with over 10 years of experience building production-grade distributed systems. Specialized in Django, AWS, and scalable cloud architecture."
   },
   "nav": {
     "about": "About",
@@ -11,78 +11,92 @@
   },
   "hero": {
     "name": "Krystian Hanek",
-    "title": "Lead Backend Developer",
-    "subtitle": "Backend-first developer with over 10 years of experience building scalable systems"
+    "title": "Senior Backend Engineer",
+    "subtitle": "Senior Backend Engineer specializing in scalable distributed systems and cloud architecture",
+    "cta": "Get in touch"
   },
   "about": {
     "title": "About",
-    "content": "I am a developer with over 10 years of experience. I spent most of my professional time at Apptension, a software house based in Poznan, where I worked on all kinds of projects based on Django framework, often Celery, and AWS cloud solutions, including AWS ECS, RDS, SQS, Lambda functions. I have worked with different teams from different countries like USA, UK, South Africa and Poland.",
-    "content2": "I started my career in a startup, where I had the opportunity to learn from the ground up and build my technical skills on the challenges that were put in front of me."
+    "content": "I am a senior backend engineer with over a decade of experience building production-grade distributed systems. Throughout my career at Apptension, I have architected and delivered complex solutions using Django, AWS, and modern cloud-native technologies for clients across the United States, United Kingdom, South Africa, and Poland.",
+    "content2": "My engineering journey began in startup environments, where I developed a strong foundation in solving complex technical challenges and delivering business value through software."
   },
   "skills": {
-    "title": "Technical Focus",
-    "backend": {
-      "title": "Backend",
+    "title": "Technical Expertise",
+    "coreStack": {
+      "title": "Core Stack",
       "items": [
-        "API design, business logic",
-        "data modeling, authentication & authorization",
-        "performance optimization"
+        "Python",
+        "Django",
+        "PostgreSQL",
+        "Redis",
+        "Celery"
       ]
     },
     "cloud": {
-      "title": "Cloud (AWS)",
+      "title": "Cloud & Infrastructure",
       "items": [
-        "Infrastructure as Code (AWS CDK)",
-        "serverless & managed services",
-        "monitoring & observability"
+        "AWS (ECS, Lambda, RDS, SQS, S3)",
+        "CDK",
+        "Terraform",
+        "Serverless & Managed Services",
+        "Monitoring & Observability"
       ]
     },
     "architecture": {
       "title": "Architecture",
       "items": [
         "Microservices",
-        "modular monoliths",
-        "event-driven components"
+        "Event-driven Systems",
+        "Domain-Driven Design",
+        "Modular Monoliths"
       ]
     },
-    "quality": {
-      "title": "Quality & Reliability",
+    "practices": {
+      "title": "Engineering Practices",
       "items": [
-        "Unit, integration tests",
-        "Volume, and load testing; traffic spike handling"
+        "CI/CD",
+        "Load Testing",
+        "Observability (Prometheus, Grafana)",
+        "API Design & Performance Optimization"
       ]
     }
   },
   "projects": {
-    "title": "Selected Projects",
+    "title": "Professional Experience",
     "dmw": {
       "name": "DMW",
-      "description": "Designed and maintained backend services and authorization mechanisms for a production system. Owned cloud infrastructure using AWS CDK to support secure deployments, horizontal scaling, and stable runtime environments. Implemented reporting components tightly coupled with backend domain logic."
+      "description": "Designed and maintained backend services and authorization mechanisms for a production system. Owned cloud infrastructure using AWS CDK to support secure deployments, horizontal scaling, and stable runtime environments. Implemented reporting components tightly coupled with backend domain logic.",
+      "technologies": ["Django", "AWS CDK", "PostgreSQL", "AWS ECS", "AWS RDS"]
     },
     "saas": {
       "name": "Internal SaaS Boilerplate",
-      "description": "Introduced backend observability by integrating Prometheus and Grafana, enabling deeper insight into application behavior, performance bottlenecks, and error patterns in production."
+      "description": "Introduced backend observability by integrating Prometheus and Grafana, enabling deeper insight into application behavior, performance bottlenecks, and error patterns in production.",
+      "technologies": ["Django", "Prometheus", "Grafana", "Docker"]
     },
     "kandua": {
       "name": "Kandua (formerly Home+), Santam",
-      "description": "Designed backend architecture and data flows for a serverless, microservice-based system. Implemented inter-service communication, domain-driven service boundaries, and integrations with external providers (payments, utilities, emergency services)."
+      "description": "Designed backend architecture and data flows for a serverless, microservice-based system. Implemented inter-service communication, domain-driven service boundaries, and integrations with external providers (payments, utilities, emergency services).",
+      "technologies": ["AWS Lambda", "Microservices", "Serverless", "AWS SQS", "Django"]
     },
     "worldexpo": {
       "name": "World Expo, Dogstudio",
-      "description": "Implemented backend features including database schema evolution, API development, and AWS Elasticsearch integration. Focused on data querying, performance, and maintainability in a TypeScript-based backend."
+      "description": "Implemented backend features including database schema evolution, API development, and AWS Elasticsearch integration. Focused on data querying, performance, and maintainability in a TypeScript-based backend.",
+      "technologies": ["TypeScript", "AWS Elasticsearch", "Node.js", "PostgreSQL"]
     },
     "questpass": {
       "name": "Questpass (formerly Adquesto)",
-      "description": "Backend systems supporting advertising platforms by introducing new media types (video), integrating AWS MediaConvert, and enhancing reporting and analytics endpoints. Optimized backend systems to handle high and unpredictable traffic peaks through caching strategies, architectural improvements, and systematic load testing. Designed and executed performance and stress testing scenarios."
+      "description": "Backend systems supporting advertising platforms by introducing new media types (video), integrating AWS MediaConvert, and enhancing reporting and analytics endpoints. Optimized backend systems to handle high and unpredictable traffic peaks through caching strategies, architectural improvements, and systematic load testing. Designed and executed performance and stress testing scenarios.",
+      "technologies": ["Django", "AWS MediaConvert", "Redis", "Celery", "Load Testing"]
     },
     "less": {
       "name": "LESS (formerly CountMe)",
-      "description": "Built and evolved backend APIs for personalized content, payments, and verification workflows. Implemented and later migrated authentication mechanisms (Auth0 → custom solution). Improved system resiliency through backend optimizations and comprehensive testing."
+      "description": "Built and evolved backend APIs for personalized content, payments, and verification workflows. Implemented and later migrated authentication mechanisms (Auth0 → custom solution). Improved system resiliency through backend optimizations and comprehensive testing.",
+      "technologies": ["Django", "Auth0", "PostgreSQL", "REST API", "Payment Integration"]
     }
   },
   "contact": {
     "title": "Contact",
-    "email": "krystian.hanek@gmail.com",
+    "email": "krystian@hanek-software.com",
     "phone": "+48 737 526 507",
     "location": "Poznań, Poland"
   },

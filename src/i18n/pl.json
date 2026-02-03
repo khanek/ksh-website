@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Krystian Hanek - Lead Backend Developer",
-    "description": "Backend developer z ponad 10-letnim doświadczeniem. Specjalizacja w Django, AWS i skalowalnej architekturze systemów."
+    "title": "Krystian Hanek - Senior Backend Engineer",
+    "description": "Senior Backend Engineer z ponad 10-letnim doświadczeniem w budowaniu systemów produkcyjnych klasy enterprise. Specjalizacja w Django, AWS i skalowalnej architekturze chmurowej."
   },
   "nav": {
     "about": "O mnie",
@@ -11,78 +11,92 @@
   },
   "hero": {
     "name": "Krystian Hanek",
-    "title": "Lead Backend Developer",
-    "subtitle": "Backend-first developer z ponad 10-letnim doświadczeniem w budowaniu skalowalnych systemów"
+    "title": "Senior Backend Engineer",
+    "subtitle": "Senior Backend Engineer specjalizujący się w skalowalnych systemach rozproszonych i architekturze chmurowej",
+    "cta": "Skontaktuj się"
   },
   "about": {
     "title": "O mnie",
-    "content": "Jestem developerem z ponad 10-letnim doświadczeniem. Większość czasu zawodowego spędziłem w Apptension, software house z Poznania, gdzie pracowałem nad różnego rodzaju projektami opartymi na frameworku Django, często Celery, oraz rozwiązaniach chmurowych AWS, w tym AWS ECS, RDS, SQS, funkcje Lambda. Pracowałem z różnymi zespołami z różnych krajów takich jak USA, UK, RPA i Polska.",
-    "content2": "Zacząłem karierę w startupie, gdzie miałem okazję uczyć się od podstaw i budować swoje umiejętności techniczne na wyzwaniach, które były przede mną stawiane."
+    "content": "Jestem senior backend engineerem z ponad dziesięcioletnim doświadczeniem w budowaniu systemów produkcyjnych klasy enterprise. Przez większość kariery w Apptension projektowałem i dostarczałem złożone rozwiązania wykorzystujące Django, AWS oraz nowoczesne technologie cloud-native dla klientów ze Stanów Zjednoczonych, Wielkiej Brytanii, RPA i Polski.",
+    "content2": "Moją karierę inżynierską rozpocząłem w środowisku startupowym, gdzie zbudowałem solidne fundamenty w rozwiązywaniu złożonych wyzwań technicznych i dostarczaniu wartości biznesowej poprzez oprogramowanie."
   },
   "skills": {
-    "title": "Fokus techniczny",
-    "backend": {
-      "title": "Backend",
+    "title": "Ekspertyza techniczna",
+    "coreStack": {
+      "title": "Core Stack",
       "items": [
-        "projektowanie API, logika biznesowa",
-        "modelowanie danych, uwierzytelnianie i autoryzacja",
-        "optymalizacja wydajności"
+        "Python",
+        "Django",
+        "PostgreSQL",
+        "Redis",
+        "Celery"
       ]
     },
     "cloud": {
-      "title": "Cloud (AWS)",
+      "title": "Cloud & Infrastructure",
       "items": [
-        "Infrastructure as Code (AWS CDK)",
-        "serverless i zarządzane serwisy",
-        "monitoring i obserwowalność"
+        "AWS (ECS, Lambda, RDS, SQS, S3)",
+        "CDK",
+        "Terraform",
+        "Serverless & Managed Services",
+        "Monitoring & Observability"
       ]
     },
     "architecture": {
       "title": "Architektura",
       "items": [
         "Mikrousługi",
-        "modularne monolity",
-        "komponenty oparte na zdarzeniach"
+        "Systemy oparte na zdarzeniach",
+        "Domain-Driven Design",
+        "Modularne monolity"
       ]
     },
-    "quality": {
-      "title": "Jakość i niezawodność",
+    "practices": {
+      "title": "Praktyki inżynierskie",
       "items": [
-        "Testy jednostkowe, integracyjne",
-        "Testy obciążeniowe i wydajnościowe; obsługa skoków ruchu"
+        "CI/CD",
+        "Testy obciążeniowe",
+        "Obserwowalność (Prometheus, Grafana)",
+        "Projektowanie API i optymalizacja wydajności"
       ]
     }
   },
   "projects": {
-    "title": "Wybrane projekty",
+    "title": "Doświadczenie zawodowe",
     "dmw": {
       "name": "DMW",
-      "description": "Projektowałem i utrzymywałem serwisy backendowe oraz mechanizmy autoryzacji dla systemu produkcyjnego. Zarządzałem infrastrukturą chmurową używając AWS CDK, aby wspierać bezpieczne wdrożenia, skalowanie poziome i stabilne środowiska uruchomieniowe. Implementowałem komponenty raportujące ściśle powiązane z logiką domenową backendu."
+      "description": "Projektowałem i utrzymywałem serwisy backendowe oraz mechanizmy autoryzacji dla systemu produkcyjnego. Zarządzałem infrastrukturą chmurową używając AWS CDK, aby wspierać bezpieczne wdrożenia, skalowanie poziome i stabilne środowiska uruchomieniowe. Implementowałem komponenty raportujące ściśle powiązane z logiką domenową backendu.",
+      "technologies": ["Django", "AWS CDK", "PostgreSQL", "AWS ECS", "AWS RDS"]
     },
     "saas": {
       "name": "Internal SaaS Boilerplate",
-      "description": "Wprowadziłem obserwowalność backendu poprzez integrację Prometheus i Grafana, umożliwiając głębszy wgląd w zachowanie aplikacji, wąskie gardła wydajnościowe i wzorce błędów w produkcji."
+      "description": "Wprowadziłem obserwowalność backendu poprzez integrację Prometheus i Grafana, umożliwiając głębszy wgląd w zachowanie aplikacji, wąskie gardła wydajnościowe i wzorce błędów w produkcji.",
+      "technologies": ["Django", "Prometheus", "Grafana", "Docker"]
     },
     "kandua": {
       "name": "Kandua (dawniej Home+), Santam",
-      "description": "Projektowałem architekturę backendową i przepływy danych dla systemu bezserwerowego opartego na mikrousługach. Implementowałem komunikację między serwisami, granice serwisów oparte na domenie oraz integracje z zewnętrznymi dostawcami (płatności, media, służby ratunkowe)."
+      "description": "Projektowałem architekturę backendową i przepływy danych dla systemu bezserwerowego opartego na mikrousługach. Implementowałem komunikację między serwisami, granice serwisów oparte na domenie oraz integracje z zewnętrznymi dostawcami (płatności, media, służby ratunkowe).",
+      "technologies": ["AWS Lambda", "Microservices", "Serverless", "AWS SQS", "Django"]
     },
     "worldexpo": {
       "name": "World Expo, Dogstudio",
-      "description": "Implementowałem funkcje backendowe, w tym ewolucję schematu bazy danych, rozwój API oraz integrację z AWS Elasticsearch. Skupiłem się na zapytaniach danych, wydajności i utrzymywalności w backendzie opartym na TypeScript."
+      "description": "Implementowałem funkcje backendowe, w tym ewolucję schematu bazy danych, rozwój API oraz integrację z AWS Elasticsearch. Skupiłem się na zapytaniach danych, wydajności i utrzymywalności w backendzie opartym na TypeScript.",
+      "technologies": ["TypeScript", "AWS Elasticsearch", "Node.js", "PostgreSQL"]
     },
     "questpass": {
       "name": "Questpass (dawniej Adquesto)",
-      "description": "Systemy backendowe wspierające platformy reklamowe poprzez wprowadzenie nowych typów mediów (wideo), integrację AWS MediaConvert oraz rozszerzenie endpointów raportowania i analityki. Optymalizowałem systemy backendowe do obsługi wysokich i nieprzewidywalnych skoków ruchu poprzez strategie cache'owania, ulepszenia architektoniczne i systematyczne testy obciążeniowe. Projektowałem i wykonywałem scenariusze testów wydajnościowych i stresowych."
+      "description": "Systemy backendowe wspierające platformy reklamowe poprzez wprowadzenie nowych typów mediów (wideo), integrację AWS MediaConvert oraz rozszerzenie endpointów raportowania i analityki. Optymalizowałem systemy backendowe do obsługi wysokich i nieprzewidywalnych skoków ruchu poprzez strategie cache'owania, ulepszenia architektoniczne i systematyczne testy obciążeniowe. Projektowałem i wykonywałem scenariusze testów wydajnościowych i stresowych.",
+      "technologies": ["Django", "AWS MediaConvert", "Redis", "Celery", "Load Testing"]
     },
     "less": {
       "name": "LESS (dawniej CountMe)",
-      "description": "Budowałem i rozwijałem API backendowe dla spersonalizowanej treści, płatności i przepływów weryfikacyjnych. Implementowałem i później migrowałem mechanizmy uwierzytelniania (Auth0 → własne rozwiązanie). Poprawiłem odporność systemu poprzez optymalizacje backendowe i kompleksowe testowanie."
+      "description": "Budowałem i rozwijałem API backendowe dla spersonalizowanej treści, płatności i przepływów weryfikacyjnych. Implementowałem i później migrowałem mechanizmy uwierzytelniania (Auth0 → własne rozwiązanie). Poprawiłem odporność systemu poprzez optymalizacje backendowe i kompleksowe testowanie.",
+      "technologies": ["Django", "Auth0", "PostgreSQL", "REST API", "Payment Integration"]
     }
   },
   "contact": {
     "title": "Kontakt",
-    "email": "krystian.hanek@gmail.com",
+    "email": "krystian@hanek-software.com",
     "phone": "+48 737 526 507",
     "location": "Poznań, Polska"
   },

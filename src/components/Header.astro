@@ -41,9 +41,10 @@ const otherLangPath = lang === 'en' ? '/pl' : '/';
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: var(--color-bg);
+    background-color: var(--color-card-bg);
     border-bottom: 1px solid var(--color-border);
     backdrop-filter: blur(10px);
+    box-shadow: 0 1px 3px var(--color-shadow);
   }
   
   [data-theme="dark"] header {
@@ -67,8 +68,24 @@ const otherLangPath = lang === 'en' ? '/pl' : '/';
   .logo {
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--color-accent);
+    background: var(--color-accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     letter-spacing: -0.02em;
+    transition: transform 0.2s ease;
+  }
+  
+  @supports not (-webkit-background-clip: text) {
+    .logo {
+      color: var(--color-accent);
+      background: none;
+    }
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
   }
   
   .nav-right {
@@ -85,7 +102,12 @@ const otherLangPath = lang === 'en' ? '/pl' : '/';
   }
   
   .language-switcher a:hover {
-    background-color: var(--color-card-bg);
+    background-color: var(--color-bg);
+  }
+  
+  .language-switcher a.active {
+    background: var(--color-accent-gradient);
+    color: white;
   }
   
   @media print {

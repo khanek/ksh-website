@@ -13,39 +13,39 @@ const t = await import(`../i18n/${lang}.json`);
       <h2>{t.skills.title}</h2>
       <div class="skills-grid">
         <div class="skill-category">
-          <h3>{t.skills.backend.title}</h3>
-          <ul>
-            {t.skills.backend.items.map((item) => (
-              <li>{item}</li>
+          <h3>{t.skills.coreStack.title}</h3>
+          <div class="skill-tags">
+            {t.skills.coreStack.items.map((item) => (
+              <span class="skill-tag">{item}</span>
             ))}
-          </ul>
+          </div>
         </div>
         
         <div class="skill-category">
           <h3>{t.skills.cloud.title}</h3>
-          <ul>
+          <div class="skill-tags">
             {t.skills.cloud.items.map((item) => (
-              <li>{item}</li>
+              <span class="skill-tag">{item}</span>
             ))}
-          </ul>
+          </div>
         </div>
         
         <div class="skill-category">
           <h3>{t.skills.architecture.title}</h3>
-          <ul>
+          <div class="skill-tags">
             {t.skills.architecture.items.map((item) => (
-              <li>{item}</li>
+              <span class="skill-tag">{item}</span>
             ))}
-          </ul>
+          </div>
         </div>
         
         <div class="skill-category">
-          <h3>{t.skills.quality.title}</h3>
-          <ul>
-            {t.skills.quality.items.map((item) => (
-              <li>{item}</li>
+          <h3>{t.skills.practices.title}</h3>
+          <div class="skill-tags">
+            {t.skills.practices.items.map((item) => (
+              <span class="skill-tag">{item}</span>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -60,46 +60,68 @@ const t = await import(`../i18n/${lang}.json`);
   
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-md);
     margin-top: var(--spacing-md);
   }
   
   .skill-category {
-    background-color: var(--color-bg);
+    background-color: var(--color-card-bg);
     padding: var(--spacing-md);
-    border-radius: 0.5rem;
-    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px var(--color-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .skill-category:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-shadow-hover);
   }
   
   .skill-category h3 {
     font-size: var(--font-size-xl);
-    margin-bottom: var(--spacing-sm);
-    color: var(--color-accent);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+    font-weight: 600;
   }
   
-  .skill-category ul {
-    list-style: none;
-    padding: 0;
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
   
-  .skill-category li {
-    padding: var(--spacing-xs) 0;
-    color: var(--color-text-secondary);
-    position: relative;
-    padding-left: 1.5rem;
+  .skill-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border-radius: 0.5rem;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+    transition: all 0.2s ease;
   }
   
-  .skill-category li::before {
-    content: "▹";
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
+  .skill-tag:hover {
+    background: var(--color-accent-gradient);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-1px);
   }
   
   @media (max-width: 768px) {
     .skills-grid {
       grid-template-columns: 1fr;
+    }
+    
+    .skill-tags {
+      gap: 0.5rem;
+    }
+    
+    .skill-tag {
+      padding: 0.4rem 0.875rem;
+      font-size: 0.8125rem;
     }
   }
   
@@ -116,7 +138,7 @@ const t = await import(`../i18n/${lang}.json`);
     
     .skill-category {
       background-color: transparent;
-      border: none;
+      box-shadow: none;
       padding: 0.3cm 0;
       page-break-inside: avoid;
     }
@@ -126,9 +148,18 @@ const t = await import(`../i18n/${lang}.json`);
       margin-bottom: 0.2cm;
     }
     
-    .skill-category li {
-      font-size: 10pt;
-      padding: 0.1cm 0 0.1cm 0.5cm;
+    .skill-tags {
+      display: block;
+    }
+    
+    .skill-tag {
+      display: inline-block;
+      padding: 0.1cm 0.3cm;
+      margin: 0.1cm 0.2cm 0.1cm 0;
+      border: 0.5pt solid #000;
+      background: transparent;
+      color: #000;
+      font-size: 9pt;
     }
   }
 </style>
