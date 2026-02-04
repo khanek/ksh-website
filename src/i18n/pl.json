@@ -22,51 +22,102 @@
   },
   "skills": {
     "title": "Ekspertyza techniczna",
-    "coreStack": {
-      "title": "Core Stack",
-      "items": [
-        "Python",
-        "Django",
-        "PostgreSQL",
-        "Redis",
-        "Celery"
-      ]
-    },
-    "cloud": {
-      "title": "Cloud & Infrastructure",
-      "items": [
-        "AWS (ECS, Lambda, RDS, SQS, S3)",
-        "CDK",
-        "Terraform",
-        "Serverless & Managed Services",
-        "Monitoring & Observability"
-      ]
-    },
-    "architecture": {
-      "title": "Architektura",
-      "items": [
-        "Mikrousługi",
-        "Systemy oparte na zdarzeniach",
-        "Domain-Driven Design",
-        "Modularne monolity"
-      ]
-    },
-    "practices": {
-      "title": "Praktyki inżynierskie",
-      "items": [
-        "CI/CD",
-        "Testy obciążeniowe",
-        "Obserwowalność (Prometheus, Grafana)",
-        "Projektowanie API i optymalizacja wydajności"
-      ]
-    }
+    "categories": [
+      {
+        "title": "Języki",
+        "items": [
+          { "name": "Python", "status": "known" },
+          { "name": "JavaScript", "status": "known" },
+          { "name": "TypeScript", "status": "known" },
+          { "name": "Go", "status": "learning" }
+        ]
+      },
+      {
+        "title": "Frameworki",
+        "items": [
+          { "name": "Django", "status": "known" },
+          { "name": "FastAPI", "status": "known" }
+        ]
+      },
+      {
+        "title": "Bazy danych",
+        "items": [
+          { "name": "PostgreSQL", "status": "known" },
+          { "name": "MySQL", "status": "known" },
+          { "name": "Redis", "status": "known" }
+        ]
+      },
+      {
+        "title": "API",
+        "items": [
+          { "name": "REST", "status": "known" },
+          { "name": "GraphQL", "status": "known" },
+          { "name": "gRPC", "status": "learning" }
+        ]
+      },
+      {
+        "title": "Uwierzytelnianie",
+        "items": [
+          { "name": "JWT", "status": "known" },
+          { "name": "OAuth 2.0", "status": "known" },
+          { "name": "Session Auth", "status": "known" },
+          { "name": "Basic Auth", "status": "known" }
+        ]
+      },
+      {
+        "title": "Architektura",
+        "items": [
+          { "name": "Mikrousługi", "status": "known" },
+          { "name": "Modularny Monolit", "status": "known" },
+          { "name": "Event-Driven", "status": "known" },
+          { "name": "Serverless", "status": "known" },
+          { "name": "Domain-Driven Design", "status": "learning" }
+        ]
+      },
+      {
+        "title": "Infrastruktura",
+        "items": [
+          { "name": "Docker", "status": "known" },
+          { "name": "AWS", "status": "known" },
+          { "name": "Terraform", "status": "known" },
+          { "name": "AWS CDK", "status": "known" },
+          { "name": "Kubernetes", "status": "learning" },
+          { "name": "Nginx", "status": "known" }
+        ]
+      },
+      {
+        "title": "Testowanie",
+        "items": [
+          { "name": "Unit Tests", "status": "known" },
+          { "name": "Integration Tests", "status": "known" },
+          { "name": "E2E Tests", "status": "known" },
+          { "name": "Load Testing", "status": "known" },
+          { "name": "TDD", "status": "known" }
+        ]
+      },
+      {
+        "title": "Narzędzia i Praktyki",
+        "items": [
+          { "name": "Git", "status": "known" },
+          { "name": "CI/CD", "status": "known" },
+          { "name": "Celery", "status": "known" },
+          { "name": "RabbitMQ", "status": "known" },
+          { "name": "AWS SQS", "status": "known" },
+          { "name": "Prometheus/Grafana", "status": "known" },
+          { "name": "Kafka", "status": "learning" }
+        ]
+      }
+    ]
   },
   "projects": {
     "title": "Doświadczenie zawodowe",
+    "showMore": "Pokaż więcej",
+    "showLess": "Pokaż mniej",
     "dmw": {
-      "name": "DMW",
+      "name": "DMW & Lov-map",
+      "url": "https://visehub.io/",
       "summary": "Odpowiedzialność za backend i IaC dla bezpiecznej, skalowalnej platformy produkcyjnej.",
-      "description": "Projektowałem i utrzymywałem serwisy backendowe oraz mechanizmy autoryzacji dla systemu produkcyjnego. Zarządzałem infrastrukturą chmurową używając AWS CDK, aby wspierać bezpieczne wdrożenia, skalowanie poziome i stabilne środowiska uruchomieniowe. Implementowałem komponenty raportujące ściśle powiązane z logiką domenową backendu.",
+      "description": "vise DMW to zaawansowana, webowa platforma do zarządzania danymi, procesów ETL oraz zapewniania jakości danych, zaprojektowana do usprawniania migracji danych, transformacji i walidacji. vise LoV-Map to narzędzie do mapowania wartości i wyrównywania danych, które umożliwia zarządzanie tabelami mapowania i relacjami wartości biznesowych. Projektowałem i utrzymywałem serwisy backendowe oraz mechanizmy autoryzacji dla tej platformy produkcyjnej. Zarządzałem infrastrukturą chmurową używając AWS CDK, aby wspierać bezpieczne wdrożenia, skalowanie poziome i stabilne środowiska uruchomieniowe. Implementowałem komponenty raportujące ściśle powiązane z logiką domenową backendu.",
       "highlights": [
         "Projekt i utrzymanie mechanizmów autoryzacji oraz kontroli dostępu",
         "Utrzymanie infrastruktury w AWS CDK: powtarzalne wdrożenia i skalowanie poziome",
@@ -75,9 +126,10 @@
       "technologies": ["Django", "AWS CDK", "PostgreSQL", "AWS ECS", "AWS RDS"]
     },
     "saas": {
-      "name": "Internal SaaS Boilerplate",
+      "name": "Saas Boilerplate",
+      "url": "https://www.apptension.com/saas-boilerplate",
       "summary": "Ustanowienie standardu obserwowalności dla wewnętrznej platformy backendowej.",
-      "description": "Wprowadziłem obserwowalność backendu poprzez integrację Prometheus i Grafana, umożliwiając głębszy wgląd w zachowanie aplikacji, wąskie gardła wydajnościowe i wzorce błędów w produkcji.",
+      "description": "SaaS Boilerplate to gotowy do użycia, konfigurowalny i dobrze przetestowany open-source toolkit, który zawiera wszystkie niezbędne komponenty do budowy kompletnego produktu SaaS. Platforma oferuje gotowe funkcjonalności takie jak autoryzacja i uwierzytelnianie, zarządzanie emailami, subskrypcje, płatności, multitenancy, integrację CMS oraz integrację z OpenAI. Zbudowany na React, TypeScript, Python i AWS, z infrastrukturą jako kod oraz prekonfigurowanym CI/CD. Wprowadziłem obserwowalność backendu poprzez integrację Prometheus i Grafana, umożliwiając głębszy wgląd w zachowanie aplikacji, wąskie gardła wydajnościowe i wzorce błędów w produkcji.",
       "highlights": [
         "Integracja metryk Prometheus oraz dashboardów w Grafana",
         "Lepsza widoczność wąskich gardeł wydajności i wzorców błędów",
@@ -87,8 +139,9 @@
     },
     "kandua": {
       "name": "Kandua (dawniej Home+), Santam",
+      "url": "https://kandua.com/",
       "summary": "Projekt przepływów danych i granic serwisów dla systemu serverless opartego o mikrousługi.",
-      "description": "Projektowałem architekturę backendową i przepływy danych dla systemu bezserwerowego opartego na mikrousługach. Implementowałem komunikację między serwisami, granice serwisów oparte na domenie oraz integracje z zewnętrznymi dostawcami (płatności, media, służby ratunkowe).",
+      "description": "Kandua to wiodąca platforma usług domowych w RPA, pierwsza na świecie platforma usług domowych napędzana przez AI, która łączy właścicieli domów z zweryfikowanymi profesjonalistami. Platforma oferuje usługi elektryków, hydraulików i innych specjalistów, wykorzystując AI do diagnozowania potrzeb użytkowników i dopasowywania ich do odpowiednich profesjonalistów. Projektowałem architekturę backendową i przepływy danych dla tego systemu bezserwerowego opartego na mikrousługach. Implementowałem komunikację między serwisami, granice serwisów oparte na domenie oraz integracje z zewnętrznymi dostawcami (płatności, media, służby ratunkowe).",
       "highlights": [
         "Wyznaczenie granic serwisów w podejściu domenowym i komunikacji między nimi",
         "Integracje z dostawcami zewnętrznymi (płatności, media, służby ratunkowe)",
@@ -98,8 +151,9 @@
     },
     "worldexpo": {
       "name": "World Expo, Dogstudio",
+      "url": "https://dogstudio.co/cases/virtual-expo-dubai-2020/",
       "summary": "Implementacja funkcji backendowych w TypeScript oraz integracji wyszukiwarki dla platformy contentowej.",
-      "description": "Implementowałem funkcje backendowe, w tym ewolucję schematu bazy danych, rozwój API oraz integrację z AWS Elasticsearch. Skupiłem się na zapytaniach danych, wydajności i utrzymywalności w backendzie opartym na TypeScript.",
+      "description": "Virtual Expo Dubai 2020 to pierwsza w historii wirtualna wersja największego wydarzenia na świecie - World Expo. Była to 6-miesięczna wirtualna ekspozycja, która umożliwiła odwiedzającym z całego świata dostęp do wydarzeń, wykładów, występów i architektury 192 krajów uczestniczących bez konieczności podróży do Dubaju. Platforma zawierała dokładną cyfrową replikę ogromnego terenu Expo z pawilonami krajowymi i tematycznymi, trybem dziennym i nocnym, oraz ponad 200 niestandardowymi pawilonami 3D. Implementowałem funkcje backendowe, w tym ewolucję schematu bazy danych, rozwój API oraz integrację z AWS Elasticsearch. Skupiłem się na zapytaniach danych, wydajności i utrzymywalności w backendzie opartym na TypeScript.",
       "highlights": [
         "Rozwój API i ewolucja schematu bazy danych",
         "Integracja AWS Elasticsearch dla wydajnego wyszukiwania",
@@ -109,8 +163,9 @@
     },
     "questpass": {
       "name": "Questpass (dawniej Adquesto)",
+      "url": "https://questpass.io/en/",
       "summary": "Skalowanie backendu dla wysokiego ruchu: wideo processing i raportowanie.",
-      "description": "Systemy backendowe wspierające platformy reklamowe poprzez wprowadzenie nowych typów mediów (wideo), integrację AWS MediaConvert oraz rozszerzenie endpointów raportowania i analityki. Optymalizowałem systemy backendowe do obsługi wysokich i nieprzewidywalnych skoków ruchu poprzez strategie cache'owania, ulepszenia architektoniczne i systematyczne testy obciążeniowe. Projektowałem i wykonywałem scenariusze testów wydajnościowych i stresowych.",
+      "description": "QuestPass to platforma reklamowa oparta na innowacyjnym formacie \"questvertising\", który gwarantuje 100% uwagi i zrozumienia komunikatu reklamowego poprzez wymaganie odpowiedzi na pytanie związane z treścią reklamy przed uzyskaniem dostępu do zawartości. Platforma łączy reklamodawców, wydawców i odbiorców, oferując reklamodawcom pewność, że ich reklama została zobaczenia i świadomie zrozumiana, wydawcom możliwość zarabiania na wartościowej treści, a odbiorcom darmowy dostęp do cennych materiałów. Systemy backendowe wspierające platformę poprzez wprowadzenie nowych typów mediów (wideo), integrację AWS MediaConvert oraz rozszerzenie endpointów raportowania i analityki. Optymalizowałem systemy backendowe do obsługi wysokich i nieprzewidywalnych skoków ruchu poprzez strategie cache'owania, ulepszenia architektoniczne i systematyczne testy obciążeniowe. Projektowałem i wykonywałem scenariusze testów wydajnościowych i stresowych.",
       "highlights": [
         "Wdrożenie obsługi wideo oraz integracja AWS MediaConvert",
         "Optymalizacje cache i architektury pod nieprzewidywalne skoki ruchu",
@@ -119,9 +174,9 @@
       "technologies": ["Django", "AWS MediaConvert", "Redis", "Celery", "Load Testing"]
     },
     "less": {
-      "name": "LESS (dawniej CountMe)",
+      "name": "LESS_",
       "summary": "Rozwój API dla płatności, weryfikacji i personalizacji; migracja auth.",
-      "description": "Budowałem i rozwijałem API backendowe dla spersonalizowanej treści, płatności i przepływów weryfikacyjnych. Implementowałem i później migrowałem mechanizmy uwierzytelniania (Auth0 → własne rozwiązanie). Poprawiłem odporność systemu poprzez optymalizacje backendowe i kompleksowe testowanie.",
+      "description": "LESS_ to polska platforma i aplikacja mobilna działająca w formule społecznościowej, która służyła do kupna i sprzedaży używanych ubrań, butów i dodatków, promująca ideę cyrkularnej mody i odświeżania szafy. Funkcjonowała jako \"wirtualna szafa\", łącząc cechy Instagrama i serwisu typu OLX/Vinted, z naciskiem na bezpieczeństwo transakcji. Platforma umożliwiała użytkownikom przeglądanie szaf innych, obserwowanie profili oraz sprzedaż i zakup ubrań, wspierając ideę zmniejszenia konsumpcji poprzez handel odzieżą z drugiej ręki. Budowałem i rozwijałem API backendowe dla spersonalizowanej treści, płatności i przepływów weryfikacyjnych. Implementowałem i później migrowałem mechanizmy uwierzytelniania (Auth0 → własne rozwiązanie). Poprawiłem odporność systemu poprzez optymalizacje backendowe i kompleksowe testowanie.",
       "highlights": [
         "Rozbudowa API dla płatności i procesów weryfikacyjnych",
         "Migracja uwierzytelniania z Auth0 do własnego rozwiązania",

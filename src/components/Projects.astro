@@ -15,16 +15,35 @@ const projects = projectKeys.map((key) => ({
 
 <section class="projects" id="projects">
   <div class="container">
-    <div class="content">
-      <h2>{t.projects.title}</h2>
-      <div class="projects-grid">
+    <h2 class="projects-title">{t.projects.title}</h2>
+    <div class="projects-grid">
         {projects.map((project) => (
           <article class="project-card">
             <header class="project-header">
-              <h3>{project.name}</h3>
+              {project.url ? (
+                <h3><a href={project.url} target="_blank" rel="noopener noreferrer">{project.name}</a></h3>
+              ) : (
+                <h3>{project.name}</h3>
+              )}
             </header>
 
-            <p class="project-summary">{project.summary ?? project.description}</p>
+            {project.description && (
+              <div class="project-description-wrapper">
+                <p class="project-description" data-project={project.key}>{project.description}</p>
+                <button 
+                  class="toggle-description" 
+                  data-project={project.key}
+                  aria-expanded="false"
+                  aria-label={t.projects.showMore}
+                >
+                  <span class="toggle-text" data-show-more={t.projects.showMore} data-show-less={t.projects.showLess}>{t.projects.showMore}</span>
+                  <span class="toggle-icon">▼</span>
+                </button>
+              </div>
+            )}
+            {project.summary && !project.description && (
+              <p class="project-summary">{project.summary}</p>
+            )}
 
             {project.highlights && (
               <ul class="project-highlights">
@@ -43,7 +62,6 @@ const projects = projectKeys.map((key) => ({
             )}
           </article>
         ))}
-      </div>
     </div>
   </div>
 </section>
@@ -51,6 +69,12 @@ const projects = projectKeys.map((key) => ({
 <style>
   .projects {
     padding: var(--spacing-lg) 0;
+    background-color: var(--color-card-bg);
+  }
+  
+  .projects-title {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
   }
   
   .projects-grid {
@@ -58,6 +82,12 @@ const projects = projectKeys.map((key) => ({
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
     margin-top: var(--spacing-md);
+  }
+  
+  @media (min-width: 768px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   
   .project-card {
@@ -93,12 +123,75 @@ const projects = projectKeys.map((key) => ({
     font-weight: 600;
   }
   
-  .project-summary {
+  .project-header h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .project-header h3 a:hover {
+    color: var(--color-accent);
+  }
+  
+  .project-summary,
+  .project-description {
     font-size: var(--font-size-base);
     line-height: 1.7;
     color: var(--color-text-secondary);
+    margin-bottom: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .project-description-wrapper {
     margin-bottom: var(--spacing-md);
   }
+  
+  .project-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: calc(1.7em * 3);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .project-description.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    max-height: 2000px;
+  }
+  
+  .toggle-description {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding: 0.5rem 0;
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    font-family: inherit;
+  }
+  
+  .toggle-description:hover {
+    color: var(--color-accent);
+    opacity: 0.8;
+  }
+  
+  .toggle-icon {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.75rem;
+  }
+  
+  .toggle-description[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+  }
+  
   
   .project-highlights {
     list-style: none;
@@ -199,3 +292,44 @@ const projects = projectKeys.map((key) => ({
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButtons = document.querySelectorAll('.toggle-description');
+    
+    toggleButtons.forEach(button => {
+      const projectKey = button.getAttribute('data-project');
+      const description = document.querySelector(`.project-description[data-project="${projectKey}"]`);
+      
+      // Check if description needs truncation
+      if (description) {
+        const lineHeight = parseFloat(getComputedStyle(description).lineHeight);
+        const maxHeight = lineHeight * 3;
+        const actualHeight = description.scrollHeight;
+        
+        // Hide button if content doesn't need truncation
+        if (actualHeight <= maxHeight) {
+          button.style.display = 'none';
+          return;
+        }
+      }
+      
+      button.addEventListener('click', () => {
+        const toggleText = button.querySelector('.toggle-text');
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        
+        if (description && toggleText) {
+          if (isExpanded) {
+            description.classList.remove('expanded');
+            button.setAttribute('aria-expanded', 'false');
+            toggleText.textContent = toggleText.getAttribute('data-show-more');
+          } else {
+            description.classList.add('expanded');
+            button.setAttribute('aria-expanded', 'true');
+            toggleText.textContent = toggleText.getAttribute('data-show-less');
+          }
+        }
+      });
+    });
+  });
+</script>

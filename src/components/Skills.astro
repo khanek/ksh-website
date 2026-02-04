@@ -9,44 +9,29 @@ const t = await import(`../i18n/${lang}.json`);
 
 <section class="skills" id="skills">
   <div class="container">
-    <div class="content">
-      <h2>{t.skills.title}</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>{t.skills.coreStack.title}</h3>
-          <div class="skill-tags">
-            {t.skills.coreStack.items.map((item) => (
-              <span class="skill-tag">{item}</span>
-            ))}
+    <h2 class="skills-title">{t.skills.title}</h2>
+    <div class="roadmap-tree">
+      <div class="tree-branches">
+        {t.skills.categories.map((category, categoryIndex) => (
+          <div class="tree-branch" data-branch={categoryIndex}>
+            <div class="branch-category">
+              <div class="category-node">{category.title}</div>
+            </div>
+            <div class="branch-items">
+              {category.items.map((item, itemIndex) => (
+                <div 
+                  class={`skill-item ${item.status === 'known' ? 'skill-known' : 'skill-learning'}`}
+                  data-item={itemIndex}
+                >
+                  <span class="skill-name">{item.name}</span>
+                  {item.status === 'learning' && (
+                    <span class="learning-badge">learning</span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        
-        <div class="skill-category">
-          <h3>{t.skills.cloud.title}</h3>
-          <div class="skill-tags">
-            {t.skills.cloud.items.map((item) => (
-              <span class="skill-tag">{item}</span>
-            ))}
-          </div>
-        </div>
-        
-        <div class="skill-category">
-          <h3>{t.skills.architecture.title}</h3>
-          <div class="skill-tags">
-            {t.skills.architecture.items.map((item) => (
-              <span class="skill-tag">{item}</span>
-            ))}
-          </div>
-        </div>
-        
-        <div class="skill-category">
-          <h3>{t.skills.practices.title}</h3>
-          <div class="skill-tags">
-            {t.skills.practices.items.map((item) => (
-              <span class="skill-tag">{item}</span>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </div>
@@ -55,71 +40,197 @@ const t = await import(`../i18n/${lang}.json`);
 <style>
   .skills {
     padding: var(--spacing-lg) 0;
-    background-color: var(--color-card-bg);
+    background-color: var(--color-bg);
   }
   
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-md);
+  .skills-title {
+    text-align: center;
   }
   
-  .skill-category {
-    background-color: var(--color-card-bg);
-    padding: var(--spacing-md);
+  .roadmap-tree {
+    position: relative;
+    padding-top: var(--spacing-lg);
+  }
+  
+  .tree-root {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+  }
+  
+  .root-node {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--color-accent-gradient);
+    color: white;
     border-radius: 0.75rem;
-    box-shadow: 0 1px 3px var(--color-shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(109, 40, 217, 0.3);
   }
   
-  .skill-category:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--color-shadow-hover);
+  .tree-branches {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    position: relative;
   }
   
-  .skill-category h3 {
-    font-size: var(--font-size-xl);
+  .tree-branch {
+    position: relative;
+    padding-left: 2rem;
+  }
+  
+  .tree-branch::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-accent);
+    opacity: 0.3;
+  }
+  
+  .branch-category {
     margin-bottom: var(--spacing-md);
-    color: var(--color-text);
-    font-weight: 600;
+    position: relative;
   }
   
-  .skill-tags {
+  .branch-category::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 50%;
+    width: 1.5rem;
+    height: 2px;
+    background: var(--color-accent);
+    opacity: 0.3;
+  }
+  
+  .category-node {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-card-bg);
+    color: var(--color-text);
+    border-radius: 0.5rem;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    border: 2px solid var(--color-accent);
+    box-shadow: 0 2px 6px var(--color-shadow);
+  }
+  
+  .branch-items {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+    margin-left: 1rem;
+    position: relative;
   }
   
-  .skill-tag {
-    display: inline-block;
+  .branch-items::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-border);
+    opacity: 0.5;
+  }
+  
+  .skill-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: var(--color-bg);
-    color: var(--color-text);
     border-radius: 0.5rem;
     font-size: var(--font-size-sm);
     font-weight: 500;
-    border: 1px solid var(--color-border);
     transition: all 0.2s ease;
+    position: relative;
   }
   
-  .skill-tag:hover {
-    background: var(--color-accent-gradient);
+  .skill-known {
+    background: var(--color-accent);
     color: white;
-    border-color: transparent;
-    transform: translateY(-1px);
+    border: 2px solid var(--color-accent);
   }
   
-  @media (max-width: 768px) {
-    .skills-grid {
-      grid-template-columns: 1fr;
+  .skill-known:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(109, 40, 217, 0.3);
+  }
+  
+  .skill-learning {
+    background: transparent;
+    color: var(--color-text-secondary);
+    border: 2px dashed var(--color-border);
+  }
+  
+  .skill-learning:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  
+  .skill-name {
+    display: inline-block;
+  }
+  
+  .learning-badge {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    background: var(--color-bg);
+    color: var(--color-text-secondary);
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-transform: lowercase;
+  }
+  
+  @media (min-width: 768px) {
+    .tree-branches {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-xl);
     }
     
-    .skill-tags {
-      gap: 0.5rem;
+    .tree-branch {
+      padding-left: 2.5rem;
     }
     
-    .skill-tag {
+    .tree-branch::before {
+      width: 3px;
+    }
+    
+    .branch-category::before {
+      width: 2rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .tree-branches {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .root-node {
+      font-size: var(--font-size-xl);
+      padding: 0.75rem 1.5rem;
+    }
+    
+    .tree-branch {
+      padding-left: 1.5rem;
+    }
+    
+    .category-node {
+      font-size: var(--font-size-lg);
+      padding: 0.5rem 1rem;
+    }
+    
+    .skill-item {
       padding: 0.4rem 0.875rem;
       font-size: 0.8125rem;
     }
@@ -131,35 +242,46 @@ const t = await import(`../i18n/${lang}.json`);
       padding: 0.5cm 0;
     }
     
-    .skills-grid {
-      display: block;
-      margin-top: 0.5cm;
+    .roadmap-tree {
+      padding-top: 0.5cm;
     }
     
-    .skill-category {
-      background-color: transparent;
-      box-shadow: none;
-      padding: 0.3cm 0;
-      page-break-inside: avoid;
-    }
-    
-    .skill-category h3 {
-      font-size: 12pt;
-      margin-bottom: 0.2cm;
-    }
-    
-    .skill-tags {
-      display: block;
-    }
-    
-    .skill-tag {
-      display: inline-block;
-      padding: 0.1cm 0.3cm;
-      margin: 0.1cm 0.2cm 0.1cm 0;
-      border: 0.5pt solid #000;
+    .root-node {
       background: transparent;
       color: #000;
-      font-size: 9pt;
+      border: 2pt solid #000;
+      padding: 0.3cm 0.6cm;
+      font-size: 14pt;
+    }
+    
+    .tree-branch::before,
+    .branch-category::before,
+    .branch-items::before {
+      display: none;
+    }
+    
+    .category-node {
+      background: transparent;
+      border: 1pt solid #000;
+      padding: 0.2cm 0.4cm;
+      font-size: 11pt;
+    }
+    
+    .skill-known {
+      background: transparent;
+      color: #000;
+      border: 1pt solid #000;
+      padding: 0.1cm 0.3cm;
+    }
+    
+    .skill-learning {
+      border-style: dashed;
+      border-width: 1pt;
+      padding: 0.1cm 0.3cm;
+    }
+    
+    .learning-badge {
+      display: none;
     }
   }
 </style>

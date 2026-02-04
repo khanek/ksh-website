@@ -10,6 +10,14 @@ const t = await import(`../i18n/${lang}.json`);
 <section class="about" id="about">
   <div class="container">
     <div class="content">
+      <dotlottie-wc
+        src="https://lottie.host/32b05e81-7c8f-48ef-8540-af90f55aabd0/edimU40ghk.lottie"
+        style="width: 300px;height: 300px"
+        autoplay
+        loop
+      ></dotlottie-wc>
+    </div>
+    <div class="content">
       <h2>{t.about.title}</h2>
       <div class="about-content">
         <p>{t.about.content}</p>
@@ -24,15 +32,52 @@ const t = await import(`../i18n/${lang}.json`);
     padding: var(--spacing-lg) 0;
   }
   
+  .about .container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+  }
+  
+  .about .content:first-child {
+    flex: 0 0 300px;
+    max-width: 300px;
+  }
+  
+  .about .content:last-child {
+    flex: 1;
+  }
+  
   .about-content p {
     margin-bottom: var(--spacing-md);
     font-size: var(--font-size-lg);
     line-height: 1.7;
   }
   
+  @media (max-width: 768px) {
+    .about .container {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    
+    .about .content:first-child {
+      flex: 0 0 auto;
+      max-width: 100%;
+    }
+    
+    .about .content:last-child {
+      flex: 1;
+    }
+  }
+  
   @media print {
     .about {
       padding: 0.5cm 0;
+    }
+    
+    .about .container {
+      flex-direction: column;
+      gap: 0.5cm;
     }
     
     .about-content p {
