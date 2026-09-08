@@ -1,0 +1,353 @@
+{
+  "meta": {
+    "title": "meta.title",
+    "description": "meta.description"
+  },
+  "nav": {
+    "about": "nav.about",
+    "skills": "nav.skills",
+    "projects": "nav.projects",
+    "contact": "nav.contact"
+  },
+  "hero": {
+    "name": "hero.name",
+    "title": "hero.title",
+    "subtitle": "hero.subtitle",
+    "cta": "hero.cta"
+  },
+  "about": {
+    "title": "about.title",
+    "content": "about.content",
+    "content2": "about.content2"
+  },
+  "skills": {
+    "title": "skills.title",
+    "categories": [
+      {
+        "title": "skills.categories.0.title",
+        "items": [
+          {
+            "name": "skills.categories.0.items.0.name",
+            "status": "skills.categories.0.items.0.status"
+          },
+          {
+            "name": "skills.categories.0.items.1.name",
+            "status": "skills.categories.0.items.1.status"
+          },
+          {
+            "name": "skills.categories.0.items.2.name",
+            "status": "skills.categories.0.items.2.status"
+          },
+          {
+            "name": "skills.categories.0.items.3.name",
+            "status": "skills.categories.0.items.3.status"
+          }
+        ]
+      },
+      {
+        "title": "skills.categories.1.title",
+        "items": [
+          {
+            "name": "skills.categories.1.items.0.name",
+            "status": "skills.categories.1.items.0.status"
+          },
+          {
+            "name": "skills.categories.1.items.1.name",
+            "status": "skills.categories.1.items.1.status"
+          }
+        ]
+      },
+      {
+        "title": "skills.categories.2.title",
+        "items": [
+          {
+            "name": "skills.categories.2.items.0.name",
+            "status": "skills.categories.2.items.0.status"
+          },
+          {
+            "name": "skills.categories.2.items.1.name",
+            "status": "skills.categories.2.items.1.status"
+          },
+          {
+            "name": "skills.categories.2.items.2.name",
+            "status": "skills.categories.2.items.2.status"
+          },
+          {
+            "name": "skills.categories.2.items.3.name",
+            "status": "skills.categories.2.items.3.status"
+          }
+        ]
+      },
+      {
+        "title": "skills.categories.3.title",
+        "items": [
+          {
+            "name": "skills.categories.3.items.0.name",
+            "status": "skills.categories.3.items.0.status"
+          },
+          {
+            "name": "skills.categories.3.items.1.name",
+            "status": "skills.categories.3.items.1.status"
+          },
+          {
+            "name": "skills.categories.3.items.2.name",
+            "status": "skills.categories.3.items.2.status"
+          }
+        ]
+      },
+      {
+        "title": "skills.categories.4.title",
+        "items": [
+          {
+            "name": "skills.categories.4.items.0.name",
+            "status": "skills.categories.4.items.0.status"
+          },
+          {
+            "name": "skills.categories.4.items.1.name",
+            "status": "skills.categories.4.items.1.status"
+          },
+          {
+            "name": "skills.categories.4.items.2.name",
+            "status": "skills.categories.4.items.2.status"
+          },
+          {
+            "name": "skills.categories.4.items.3.name",
+            "status": "skills.categories.4.items.3.status"
+          }
+        ]
+      },
+      {
+        "title": "skills.categories.5.title",
+        "items": [
+          {
+            "name": "skills.categories.5.items.0.name",
+            "status": "skills.categories.5.items.0.status"
+          },
+          {
+            "name": "skills.categories.5.items.1.name",
+            "status": "skills.categories.5.items.1.status"
+          },
+          {
+            "name": "skills.categories.5.items.2.name",
+            "status": "skills.categories.5.items.2.status"
+          },
+          {
+            "name": "skills.categories.5.items.3.name",
+            "status": "skills.categories.5.items.3.status"
+          },
+          {
+            "name": "skills.categories.5.items.4.name",
+            "status": "skills.categories.5.items.4.status"
+          }
+        ]
+      },
+      {
+        "title": "skills.categories.6.title",
+        "items": [
+          {
+            "name": "skills.categories.6.items.0.name",
+            "status": "skills.categories.6.items.0.status"
+          },
+          {
+            "name": "skills.categories.6.items.1.name",
+            "status": "skills.categories.6.items.1.status"
+          },
+          {
+            "name": "skills.categories.6.items.2.name",
+            "status": "skills.categories.6.items.2.status"
+          },
+          {
+            "name": "skills.categories.6.items.3.name",
+            "status": "skills.categories.6.items.3.status"
+          },
+          {
+            "name": "skills.categories.6.items.4.name",
+            "status": "skills.categories.6.items.4.status"
+          },
+          {
+            "name": "skills.categories.6.items.5.name",
+            "status": "skills.categories.6.items.5.status"
+          }
+        ]
+      },
+      {
+        "title": "skills.categories.7.title",
+        "items": [
+          {
+            "name": "skills.categories.7.items.0.name",
+            "status": "skills.categories.7.items.0.status"
+          },
+          {
+            "name": "skills.categories.7.items.1.name",
+            "status": "skills.categories.7.items.1.status"
+          },
+          {
+            "name": "skills.categories.7.items.2.name",
+            "status": "skills.categories.7.items.2.status"
+          },
+          {
+            "name": "skills.categories.7.items.3.name",
+            "status": "skills.categories.7.items.3.status"
+          },
+          {
+            "name": "skills.categories.7.items.4.name",
+            "status": "skills.categories.7.items.4.status"
+          }
+        ]
+      },
+      {
+        "title": "skills.categories.8.title",
+        "items": [
+          {
+            "name": "skills.categories.8.items.0.name",
+            "status": "skills.categories.8.items.0.status"
+          },
+          {
+            "name": "skills.categories.8.items.1.name",
+            "status": "skills.categories.8.items.1.status"
+          },
+          {
+            "name": "skills.categories.8.items.2.name",
+            "status": "skills.categories.8.items.2.status"
+          },
+          {
+            "name": "skills.categories.8.items.3.name",
+            "status": "skills.categories.8.items.3.status"
+          },
+          {
+            "name": "skills.categories.8.items.4.name",
+            "status": "skills.categories.8.items.4.status"
+          },
+          {
+            "name": "skills.categories.8.items.5.name",
+            "status": "skills.categories.8.items.5.status"
+          },
+          {
+            "name": "skills.categories.8.items.6.name",
+            "status": "skills.categories.8.items.6.status"
+          }
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "projects.title",
+    "showMore": "projects.showMore",
+    "showLess": "projects.showLess",
+    "dmw": {
+      "name": "projects.dmw.name",
+      "url": "projects.dmw.url",
+      "summary": "projects.dmw.summary",
+      "description": "projects.dmw.description",
+      "highlights": [
+        "projects.dmw.highlights.0",
+        "projects.dmw.highlights.1",
+        "projects.dmw.highlights.2"
+      ],
+      "technologies": [
+        "projects.dmw.technologies.0",
+        "projects.dmw.technologies.1",
+        "projects.dmw.technologies.2",
+        "projects.dmw.technologies.3",
+        "projects.dmw.technologies.4"
+      ]
+    },
+    "saas": {
+      "name": "projects.saas.name",
+      "url": "projects.saas.url",
+      "summary": "projects.saas.summary",
+      "description": "projects.saas.description",
+      "highlights": [
+        "projects.saas.highlights.0",
+        "projects.saas.highlights.1",
+        "projects.saas.highlights.2"
+      ],
+      "technologies": [
+        "projects.saas.technologies.0",
+        "projects.saas.technologies.1",
+        "projects.saas.technologies.2",
+        "projects.saas.technologies.3"
+      ]
+    },
+    "kandua": {
+      "name": "projects.kandua.name",
+      "url": "projects.kandua.url",
+      "summary": "projects.kandua.summary",
+      "description": "projects.kandua.description",
+      "highlights": [
+        "projects.kandua.highlights.0",
+        "projects.kandua.highlights.1",
+        "projects.kandua.highlights.2"
+      ],
+      "technologies": [
+        "projects.kandua.technologies.0",
+        "projects.kandua.technologies.1",
+        "projects.kandua.technologies.2",
+        "projects.kandua.technologies.3",
+        "projects.kandua.technologies.4"
+      ]
+    },
+    "worldexpo": {
+      "name": "projects.worldexpo.name",
+      "url": "projects.worldexpo.url",
+      "summary": "projects.worldexpo.summary",
+      "description": "projects.worldexpo.description",
+      "highlights": [
+        "projects.worldexpo.highlights.0",
+        "projects.worldexpo.highlights.1",
+        "projects.worldexpo.highlights.2"
+      ],
+      "technologies": [
+        "projects.worldexpo.technologies.0",
+        "projects.worldexpo.technologies.1",
+        "projects.worldexpo.technologies.2",
+        "projects.worldexpo.technologies.3"
+      ]
+    },
+    "questpass": {
+      "name": "projects.questpass.name",
+      "url": "projects.questpass.url",
+      "summary": "projects.questpass.summary",
+      "description": "projects.questpass.description",
+      "highlights": [
+        "projects.questpass.highlights.0",
+        "projects.questpass.highlights.1",
+        "projects.questpass.highlights.2"
+      ],
+      "technologies": [
+        "projects.questpass.technologies.0",
+        "projects.questpass.technologies.1",
+        "projects.questpass.technologies.2",
+        "projects.questpass.technologies.3",
+        "projects.questpass.technologies.4"
+      ]
+    },
+    "less": {
+      "name": "projects.less.name",
+      "summary": "projects.less.summary",
+      "description": "projects.less.description",
+      "highlights": [
+        "projects.less.highlights.0",
+        "projects.less.highlights.1",
+        "projects.less.highlights.2"
+      ],
+      "technologies": [
+        "projects.less.technologies.0",
+        "projects.less.technologies.1",
+        "projects.less.technologies.2",
+        "projects.less.technologies.3",
+        "projects.less.technologies.4"
+      ]
+    }
+  },
+  "contact": {
+    "title": "contact.title",
+    "email": "contact.email",
+    "phone": "contact.phone",
+    "location": "contact.location"
+  },
+  "print": {
+    "button": "print.button",
+    "download": "print.download"
+  }
+}

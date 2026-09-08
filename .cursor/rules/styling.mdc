@@ -1,0 +1,132 @@
+---
+description: "CSS styling conventions, theme system, and print styles"
+globs:
+  - "src/styles/**/*.css"
+  - "src/**/*.astro"
+alwaysApply: false
+---
+
+# Styling Conventions
+
+This project uses vanilla CSS with CSS custom properties. No Tailwind or CSS frameworks are used.
+
+## CSS Architecture
+
+### Global Styles
+
+**File**: `src/styles/global.css`
+
+- Defines CSS custom properties (variables) for colors, spacing, typography
+- Sets up theme system with `[data-theme]` selectors
+- Includes base typography, layout utilities, and responsive design variables
+- Inter font loaded from Google Fonts
+
+### Print Styles
+
+**File**: `src/styles/print.css`
+
+- Separate stylesheet for print/PDF output
+- Uses `@media print` queries
+- Optimized for A4 page format
+- Hides navigation and interactive elements
+- Print-optimized typography and spacing
+
+## Theme System
+
+The theme system uses CSS custom properties and `data-theme` attribute:
+
+```css
+:root {
+  /* Light theme variables */
+  --color-bg: #fbfbff;
+  --color-text: #18181b;
+  /* ... */
+}
+
+[data-theme="dark"] {
+  /* Dark theme overrides */
+  --color-bg: #0f172a;
+  --color-text: #f1f5f9;
+  /* ... */
+}
+```
+
+The `<html>` element has `data-theme="light"` or `data-theme="dark"` set dynamically via JavaScript.
+
+## CSS Custom Properties
+
+### Color Variables
+
+- `--color-bg`: Background color
+- `--color-text`: Primary text color
+- `--color-text-secondary`: Secondary text color
+- `--color-accent`: Primary accent color
+- `--color-accent-gradient`: Gradient for accents
+- `--color-border`: Border color
+- `--color-card-bg`: Card background color
+- `--color-shadow`: Shadow color
+
+### Spacing Variables
+
+- `--spacing-xs`: 0.5rem
+- `--spacing-sm`: 1rem
+- `--spacing-md`: 2rem
+- `--spacing-lg`: 4rem
+- `--spacing-xl`: 6rem
+
+### Typography Variables
+
+- `--font-family`: Inter font stack
+- `--font-size-base`: 1rem
+- `--font-size-sm`: 0.875rem
+- `--font-size-lg`: 1.125rem
+- `--font-size-xl`: 1.25rem
+- `--font-size-2xl`: 1.5rem
+- `--font-size-3xl`: 2rem
+- `--font-size-4xl`: 2.5rem
+
+### Layout Variables
+
+- `--max-width`: 1200px (container max width)
+- `--content-width`: 800px (content max width)
+
+## Component Styles
+
+Components use scoped `<style>` blocks within `.astro` files:
+
+```astro
+<style>
+  .component-name {
+    /* Use CSS variables */
+    color: var(--color-text);
+    padding: var(--spacing-md);
+  }
+</style>
+```
+
+## Responsive Design
+
+- Use `clamp()` for fluid typography: `font-size: clamp(1rem, 2vw, 1.25rem);`
+- Use CSS variables for responsive spacing
+- Media queries for breakpoints: `@media (max-width: 768px)`
+
+## Print Styles
+
+Print styles (`src/styles/print.css`) are imported in `Layout.astro` and include:
+
+- A4 page setup with `@page` rules
+- Hides navigation, theme toggle, and interactive elements
+- Optimizes typography for print (pt units)
+- Controls page breaks
+- Removes backgrounds and shadows
+
+## Best Practices
+
+- ✅ Always use CSS custom properties instead of hardcoded values
+- ✅ Use semantic variable names (`--color-text`, not `--blue`)
+- ✅ Keep component styles scoped in `<style>` blocks
+- ✅ Use `clamp()` for responsive typography
+- ✅ Include print styles when components have print-specific needs
+- ❌ Don't use Tailwind or other CSS frameworks
+- ❌ Don't use inline styles (except for dynamic values)
+- ❌ Don't duplicate color/spacing values — use variables

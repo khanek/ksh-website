@@ -21,90 +21,211 @@
     "content2": "Moją karierę inżynierską rozpocząłem w środowisku startupowym, gdzie zbudowałem solidne fundamenty w rozwiązywaniu złożonych wyzwań technicznych i dostarczaniu wartości biznesowej poprzez oprogramowanie."
   },
   "skills": {
-    "title": "Ekspertyza techniczna",
+    "title": "Umiejętności techniczne",
     "categories": [
       {
-        "title": "Języki",
+        "title": "Języki programowania",
         "items": [
-          { "name": "Python", "status": "known" },
-          { "name": "JavaScript", "status": "known" },
-          { "name": "TypeScript", "status": "known" },
-          { "name": "Go", "status": "learning" }
+          {
+            "name": "Python",
+            "status": "known"
+          },
+          {
+            "name": "JavaScript",
+            "status": "known"
+          },
+          {
+            "name": "TypeScript",
+            "status": "known"
+          },
+          {
+            "name": "Go",
+            "status": "learning"
+          }
         ]
       },
       {
         "title": "Frameworki",
         "items": [
-          { "name": "Django", "status": "known" },
-          { "name": "FastAPI", "status": "known" }
+          {
+            "name": "Django",
+            "status": "known"
+          },
+          {
+            "name": "FastAPI",
+            "status": "known"
+          }
         ]
       },
       {
         "title": "Bazy danych",
         "items": [
-          { "name": "PostgreSQL", "status": "known" },
-          { "name": "MySQL", "status": "known" },
-          { "name": "Redis", "status": "known" }
+          {
+            "name": "PostgreSQL",
+            "status": "known"
+          },
+          {
+            "name": "MySQL",
+            "status": "known"
+          },
+          {
+            "name": "Redis",
+            "status": "known"
+          },
+          {
+            "name": "Firestore",
+            "status": "known"
+          }
         ]
       },
       {
         "title": "API",
         "items": [
-          { "name": "REST", "status": "known" },
-          { "name": "GraphQL", "status": "known" },
-          { "name": "gRPC", "status": "learning" }
+          {
+            "name": "REST",
+            "status": "known"
+          },
+          {
+            "name": "GraphQL",
+            "status": "known"
+          },
+          {
+            "name": "gRPC",
+            "status": "learning"
+          }
         ]
       },
       {
         "title": "Uwierzytelnianie",
         "items": [
-          { "name": "JWT", "status": "known" },
-          { "name": "OAuth 2.0", "status": "known" },
-          { "name": "Session Auth", "status": "known" },
-          { "name": "Basic Auth", "status": "known" }
+          {
+            "name": "JWT",
+            "status": "known"
+          },
+          {
+            "name": "OAuth 2.0",
+            "status": "known"
+          },
+          {
+            "name": "Session Auth",
+            "status": "known"
+          },
+          {
+            "name": "Basic Auth",
+            "status": "known"
+          }
         ]
       },
       {
         "title": "Architektura",
         "items": [
-          { "name": "Mikrousługi", "status": "known" },
-          { "name": "Modularny Monolit", "status": "known" },
-          { "name": "Event-Driven", "status": "known" },
-          { "name": "Serverless", "status": "known" },
-          { "name": "Domain-Driven Design", "status": "learning" }
+          {
+            "name": "Modularny Monolit",
+            "status": "known"
+          },
+          {
+            "name": "Mikrousługi",
+            "status": "known"
+          },
+          {
+            "name": "Event-Driven",
+            "status": "known"
+          },
+          {
+            "name": "Serverless",
+            "status": "known"
+          },
+          {
+            "name": "Domain-Driven Design",
+            "status": "learning"
+          }
         ]
       },
       {
         "title": "Infrastruktura",
         "items": [
-          { "name": "Docker", "status": "known" },
-          { "name": "AWS", "status": "known" },
-          { "name": "Terraform", "status": "known" },
-          { "name": "AWS CDK", "status": "known" },
-          { "name": "Kubernetes", "status": "learning" },
-          { "name": "Nginx", "status": "known" }
+          {
+            "name": "Docker",
+            "status": "known"
+          },
+          {
+            "name": "AWS",
+            "status": "known"
+          },
+          {
+            "name": "Terraform",
+            "status": "known"
+          },
+          {
+            "name": "AWS CDK",
+            "status": "known"
+          },
+          {
+            "name": "Kubernetes",
+            "status": "learning"
+          },
+          {
+            "name": "Nginx",
+            "status": "known"
+          }
         ]
       },
       {
         "title": "Testowanie",
         "items": [
-          { "name": "Unit Tests", "status": "known" },
-          { "name": "Integration Tests", "status": "known" },
-          { "name": "E2E Tests", "status": "known" },
-          { "name": "Load Testing", "status": "known" },
-          { "name": "TDD", "status": "known" }
+          {
+            "name": "Unit Tests",
+            "status": "known"
+          },
+          {
+            "name": "Integration Tests",
+            "status": "known"
+          },
+          {
+            "name": "E2E Tests",
+            "status": "known"
+          },
+          {
+            "name": "Load Testing",
+            "status": "known"
+          },
+          {
+            "name": "TDD",
+            "status": "known"
+          }
         ]
       },
       {
         "title": "Narzędzia i Praktyki",
         "items": [
-          { "name": "Git", "status": "known" },
-          { "name": "CI/CD", "status": "known" },
-          { "name": "Celery", "status": "known" },
-          { "name": "RabbitMQ", "status": "known" },
-          { "name": "AWS SQS", "status": "known" },
-          { "name": "Prometheus/Grafana", "status": "known" },
-          { "name": "Kafka", "status": "learning" }
+          {
+            "name": "Git",
+            "status": "known"
+          },
+          {
+            "name": "CI/CD",
+            "status": "known"
+          },
+          {
+            "name": "Celery",
+            "status": "known"
+          },
+          {
+            "name": "RabbitMQ",
+            "status": "known"
+          },
+          {
+            "name": "Prometheus/Grafana",
+            "status": "known"
+          },
+          {
+            "name": "Kafka",
+            "status": "learning"
+          },
+          {
+            "name": "AWS (IAM, ECS, SQS, SNS, Step Functions, etc.)",
+            "status": "known"
+          }
         ]
       }
     ]
@@ -123,7 +244,13 @@
         "Utrzymanie infrastruktury w AWS CDK: powtarzalne wdrożenia i skalowanie poziome",
         "Dostarczenie komponentów raportowania spójnych z logiką domenową"
       ],
-      "technologies": ["Django", "AWS CDK", "PostgreSQL", "AWS ECS", "AWS RDS"]
+      "technologies": [
+        "Django",
+        "AWS CDK",
+        "PostgreSQL",
+        "AWS ECS",
+        "AWS RDS"
+      ]
     },
     "saas": {
       "name": "Saas Boilerplate",
@@ -135,7 +262,12 @@
         "Lepsza widoczność wąskich gardeł wydajności i wzorców błędów",
         "Szybsza reakcja na incydenty dzięki użytecznym alertom i metrykom"
       ],
-      "technologies": ["Django", "Prometheus", "Grafana", "Docker"]
+      "technologies": [
+        "Django",
+        "Prometheus",
+        "Grafana",
+        "Docker"
+      ]
     },
     "kandua": {
       "name": "Kandua (dawniej Home+), Santam",
@@ -147,7 +279,13 @@
         "Integracje z dostawcami zewnętrznymi (płatności, media, służby ratunkowe)",
         "Elementy event-driven z naciskiem na niezawodność i utrzymywalność"
       ],
-      "technologies": ["AWS Lambda", "Microservices", "Serverless", "AWS SQS", "Django"]
+      "technologies": [
+        "AWS Lambda",
+        "Microservices",
+        "Serverless",
+        "AWS SQS",
+        "Django"
+      ]
     },
     "worldexpo": {
       "name": "World Expo, Dogstudio",
@@ -159,7 +297,12 @@
         "Integracja AWS Elasticsearch dla wydajnego wyszukiwania",
         "Optymalizacja zapytań i struktury kodu pod długoterminowe utrzymanie"
       ],
-      "technologies": ["TypeScript", "AWS Elasticsearch", "Node.js", "PostgreSQL"]
+      "technologies": [
+        "TypeScript",
+        "AWS Elasticsearch",
+        "Node.js",
+        "PostgreSQL"
+      ]
     },
     "questpass": {
       "name": "Questpass (dawniej Adquesto)",
@@ -171,7 +314,13 @@
         "Optymalizacje cache i architektury pod nieprzewidywalne skoki ruchu",
         "Projekt i wykonanie testów obciążeniowych oraz stresowych"
       ],
-      "technologies": ["Django", "AWS MediaConvert", "Redis", "Celery", "Load Testing"]
+      "technologies": [
+        "Django",
+        "AWS MediaConvert",
+        "Redis",
+        "Celery",
+        "Load Testing"
+      ]
     },
     "less": {
       "name": "LESS_",
@@ -182,7 +331,13 @@
         "Migracja uwierzytelniania z Auth0 do własnego rozwiązania",
         "Poprawa odporności poprzez optymalizacje i kompleksowe testy"
       ],
-      "technologies": ["Django", "Auth0", "PostgreSQL", "REST API", "Payment Integration"]
+      "technologies": [
+        "Django",
+        "Auth0",
+        "PostgreSQL",
+        "REST API",
+        "Payment Integration"
+      ]
     }
   },
   "contact": {

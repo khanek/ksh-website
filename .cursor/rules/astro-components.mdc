@@ -1,0 +1,124 @@
+---
+description: "Astro component patterns, props, and conventions"
+globs:
+  - "src/**/*.astro"
+alwaysApply: false
+---
+
+# Astro Component Patterns
+
+All components in this project follow consistent patterns for props, translations, and structure.
+
+## Component Structure
+
+### Props Interface
+
+Always define a typed `Props` interface and destructure from `Astro.props`:
+
+```typescript
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+---
+```
+
+### Translation Loading
+
+All components receive `lang: string` prop and load translations dynamically:
+
+```typescript
+const t = await import(`../i18n/${lang}.json`);
+```
+
+Then access translations via `t.namespace.key` (e.g., `t.hero.name`, `t.about.title`).
+
+## Component Patterns
+
+### Pages
+
+Pages explicitly set the language:
+- `src/pages/index.astro`: Sets `lang="en"` (English homepage at `/`)
+- `src/pages/pl/index.astro`: Sets `lang="pl"` (Polish homepage at `/pl`)
+
+Pages pass `lang` prop to all components they use.
+
+### Scripts
+
+- **Inline Scripts**: Use `<script is:inline>` for scripts that must run immediately (e.g., theme initialization)
+- **Client Scripts**: Place client-side JavaScript at the bottom of the component, outside `<script is:inline>`
+- **No Framework Scripts**: This project uses pure Astro, no React/Vue/Svelte components
+
+### External Dependencies
+
+- **Lottie Animations**: Loaded via CDN script in `Layout.astro`:
+  ```html
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+  ```
+
+### Theme System
+
+- Theme toggle uses `data-theme` attribute on `<html>` element
+- Values: `"light"` or `"dark"`
+- Theme preference stored in `localStorage` with key `"theme"`
+- Theme initialization script in `Layout.astro` prevents flash of unstyled content
+
+## Component Examples
+
+### Basic Component
+
+```astro
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = await import(`../i18n/${lang}.json`);
+---
+
+<section class="my-component">
+  <h1>{t.section.title}</h1>
+</section>
+
+<style>
+  .my-component {
+    /* Component-specific styles */
+  }
+</style>
+```
+
+### Component with Client Script
+
+```astro
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = await import(`../i18n/${lang}.json`);
+---
+
+<section class="interactive-component">
+  <button id="toggle">Toggle</button>
+</section>
+
+<script>
+  document.getElementById('toggle')?.addEventListener('click', () => {
+    // Client-side logic
+  });
+</script>
+```
+
+## Important Rules
+
+- ✅ Always type `Props` interface
+- ✅ Always destructure props from `Astro.props`
+- ✅ Always load translations with dynamic import
+- ✅ Use scoped `<style>` blocks for component-specific CSS
+- ✅ Place client scripts at the bottom of components
+- ❌ Don't use React/Vue/Svelte components
+- ❌ Don't use framework-specific features

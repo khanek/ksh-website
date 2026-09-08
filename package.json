@@ -6,7 +6,11 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "i18n:build": "node scripts/build-i18n.mjs",
+    "i18n:init": "node scripts/build-i18n.mjs --init",
+    "predev": "npm run i18n:build",
+    "prebuild": "npm run i18n:build"
   },
   "dependencies": {
     "astro": "^4.0.0"

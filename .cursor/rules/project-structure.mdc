@@ -1,0 +1,40 @@
+---
+description: "Project structure and organization for KSH portfolio website"
+alwaysApply: true
+---
+
+# Project Structure
+
+This is a personal portfolio static website built with Astro 4, vanilla CSS, and deployed on Netlify.
+
+## Directory Layout
+
+```
+src/
+├── components/     # Astro components (PascalCase naming)
+├── layouts/        # Page layouts (single Layout.astro)
+├── pages/          # Routes (index.astro for EN, pl/index.astro for PL)
+├── styles/         # Global CSS (global.css, print.css)
+└── i18n/           # Translation files (en.json, pl.json)
+
+public/             # Static assets (favicon.svg, PDF resume)
+```
+
+## Key Conventions
+
+- **Single Layout**: All pages use `src/layouts/Layout.astro`
+- **Component Props**: All components receive `lang: string` prop for translations
+- **Routing**: English at `/` (default), Polish at `/pl`
+- **File Naming**: 
+  - PascalCase for `.astro` components (e.g., `Hero.astro`, `Header.astro`)
+  - kebab-case for config files (e.g., `astro.config.mjs`, `netlify.toml`)
+- **Static Output**: Site is fully static (`output: 'static'` in Astro config)
+- **No Framework Components**: Pure Astro components, no React/Vue/Svelte
+
+## Project Type
+
+- **Framework**: Astro 4.0.0
+- **Styling**: Vanilla CSS with CSS custom properties (no Tailwind)
+- **Hosting**: Netlify (static hosting)
+- **Languages**: English (default), Polish
+- **TypeScript**: Enabled with strict Astro config

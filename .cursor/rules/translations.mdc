@@ -1,0 +1,144 @@
+---
+description: "Internationalization (i18n) structure and translation file conventions"
+globs:
+  - "src/i18n/**/*.json"
+alwaysApply: false
+---
+
+# Translations (i18n)
+
+This project supports bilingual content: **English** (default) and **Polish**.
+
+## How Translations Are Handled
+
+Translations use a **structure + flat files** setup so that:
+
+- **Structure is defined once** — you add/remove keys in a single place.
+- **Translations are per-locale** — each language is a flat key-value file; no copying of nested structure.
+
+**Pipeline:**
+
+1. **Source of truth (edit these):**
+   - `src/i18n/structure.json` — defines every key and the nesting shape (values are dot-paths, e.g. `"title": "meta.title"`).
+   - `src/i18n/en.flat.json` — English strings only: dot-path keys and translated values (e.g. `"meta.title": "Krystian Hanek - ..."`).
+   - `src/i18n/pl.flat.json` — Polish strings only, same key set.
+
+2. **Build step:** `npm run i18n:build` (or `predev`/`prebuild`) runs `scripts/build-i18n.mjs`, which:
+   - Reads `structure.json` and each `*.flat.json`,
+   - Unflattens flat key-value into the nested shape defined by structure,
+   - Writes `src/i18n/en.json` and `src/i18n/pl.json`.
+
+3. **Runtime:** Components import the generated nested JSON (`en.json` / `pl.json`) and use it as before (e.g. `t.hero.name`, `t.projects[key]`).
+
+**Do not edit** `en.json` or `pl.json` by hand; they are generated. Edit only `structure.json` and the flat files, then run the build.
+
+---
+
+## Source Files (edit these)
+
+| File | Purpose |
+|------|--------|
+| `src/i18n/structure.json` | Single source of structure: all keys and nesting. Leaf values are the dot-path for that key (e.g. `"meta": { "title": "meta.title" }`). Edit when adding/removing keys or sections. |
+| `src/i18n/en.flat.json` | English: flat object `{ "meta.title": "...", "nav.about": "About", ... }`. Translation text only. |
+| `src/i18n/pl.flat.json` | Polish: same keys as EN, Polish values. Translation text only. |
+
+## Generated Files (do not edit)
+
+| File | Produced by |
+|------|--------------|
+| `src/i18n/en.json` | `npm run i18n:build` — nested JSON consumed by the app. |
+| `src/i18n/pl.json` | `npm run i18n:build` — nested JSON consumed by the app. |
+
+## Scripts
+
+- **`npm run i18n:build`** — Merges structure + flat files and writes `en.json` and `pl.json`. Runs automatically before `npm run dev` and `npm run build`.
+- **`npm run i18n:init`** — One-time bootstrap: reads current `en.json` and `pl.json`, generates `structure.json` and `en.flat.json` / `pl.flat.json` (structure is merged so keys from both locales are kept). Use only when re-bootstrapping from nested files.
+
+---
+
+## Nested Output Shape (reference)
+
+The generated JSON has top-level sections: `meta`, `nav`, `hero`, `about`, `skills`, `projects`, `contact`, `print`.
+
+### `meta`
+- `title`, `description` — page title and meta description.
+
+### `nav`
+- `about`, `skills`, `projects`, `contact` — navigation labels.
+
+### `hero`
+- `name`, `title`, `subtitle`, `cta`.
+
+### `about`
+- `title`, `content`, `content2`.
+
+### `skills`
+- `title` — section title.
+- `categories` — array of `{ title, items }`; each item in `items` is `{ name, status }` (e.g. `"known"`, `"learning"`). Dot-paths in flat files look like `skills.categories.0.title`, `skills.categories.0.items.1.name`.
+
+### `projects`
+- `title`, `showMore`, `showLess` — section labels.
+- Dynamic keys per project: `dmw`, `saas`, `kandua`, `worldexpo`, `questpass`, `less`. Each has `name`, `url` (optional), `summary`, `description`, `highlights` (array of strings), `technologies` (array of strings).
+
+### `contact`
+- `title`, `email`, `phone`, `location`.
+
+### `print`
+- `button`, `download`.
+
+---
+
+## Astro i18n and Routing
+
+- **Config** (`astro.config.mjs`): `defaultLocale: 'en'`, `locales: ['en', 'pl']`, `prefixDefaultLocale: false`.
+- **English**: `/` (no prefix).
+- **Polish**: `/pl`.
+
+## Usage in Components
+
+Components load the generated nested JSON:
+
+```typescript
+const t = await import(`../i18n/${lang}.json`);
+```
+
+Access: `t.hero.name`, `t.about.content`, `t.skills.categories[i].title`, `t.projects[key].summary`, etc.
+
+---
+
+## Rules for Edits
+
+1. **Changing structure (new key, new section, new array item):** Edit only `structure.json`. Use the same path-as-value pattern as existing keys. Then add the corresponding dot-path key and value to both `en.flat.json` and `pl.flat.json`. Run `npm run i18n:build`.
+2. **Changing translation text only:** Edit only `en.flat.json` and/or `pl.flat.json`. Run `npm run i18n:build` (or rely on predev/prebuild).
+3. **Key names:** camelCase (e.g. `showMore`). Project keys: lowercase abbreviations (`dmw`, `saas`, `kandua`, etc.).
+
+## Example: Adding a New Section
+
+To add a `testimonials` section with a title and a list of strings:
+
+**1. structure.json** — add (path-as-value):
+
+```json
+"testimonials": {
+  "title": "testimonials.title",
+  "items": ["testimonials.items.0", "testimonials.items.1"]
+}
+```
+
+**2. en.flat.json** — add:
+
+```json
+"testimonials.title": "Testimonials",
+"testimonials.items.0": "First quote...",
+"testimonials.items.1": "Second quote..."
+```
+
+**3. pl.flat.json** — add same keys, Polish values:
+
+```json
+"testimonials.title": "Opinie",
+"testimonials.items.0": "Pierwsza opinia...",
+"testimonials.items.1": "Druga opinia..."
+```
+
+**4. Run** `npm run i18n:build` (or `npm run dev` / `npm run build`).

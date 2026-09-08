@@ -1,0 +1,51 @@
+---
+description: "Netlify deployment configuration and workflow for static site hosting"
+alwaysApply: false
+---
+
+# Netlify Deployment
+
+This project is deployed as a static site on Netlify. Reference `netlify.toml` for build configuration.
+
+## Build Configuration
+
+**Build Command**: `npm run build`  
+**Publish Directory**: `dist`
+
+The site uses Astro's static output mode (`output: 'static'` in `astro.config.mjs`), which generates a fully static site with no server-side rendering.
+
+## Netlify Configuration
+
+See `netlify.toml`:
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+```
+
+## Deployment Workflow
+
+1. **Automatic Deploys**: Pushing to `main` branch triggers automatic deployment
+2. **Build Process**: Netlify runs `npm run build`, which executes `astro build`
+3. **Output**: Astro generates static files in `dist/` directory
+4. **404 Handling**: All unmatched routes redirect to `/404.html`
+
+## Environment & Configuration
+
+- **No Environment Variables**: Site is fully static, no runtime environment variables needed
+- **No Server-Side Rendering**: All pages are pre-rendered at build time
+- **SSL**: Automatically handled by Netlify (Let's Encrypt)
+- **Custom Domain**: Configured in Netlify dashboard under Domain settings
+
+## Important Notes
+
+- Always ensure `dist/` directory is in `.gitignore` (build artifacts)
+- Build output is generated fresh on each deployment
+- No serverless functions or edge functions are used
+- All assets are served as static files
