@@ -12,36 +12,32 @@ const t = await import(`../i18n/${lang}.json`);
   download
   class="download-button"
 >
-  {t.print.download}
+  <span>{t.print.download}</span>
+  <span aria-hidden="true">↓</span>
 </a>
 
 <style>
   .download-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: var(--color-accent-gradient);
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: var(--font-size-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    min-width: 220px;
+    padding: 1rem;
+    color: var(--color-text);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
     font-weight: 500;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
   }
   
   .download-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-    color: white;
-  }
-  
-  @media (max-width: 768px) {
-    .download-button {
-      padding: 0.875rem 1.75rem;
-      font-size: var(--font-size-base);
-    }
+    color: var(--color-text);
+    background: var(--color-surface);
+    border-color: var(--color-accent);
   }
   
   @media print {

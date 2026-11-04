@@ -1,18 +1,26 @@
 ---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const lightThemeLabel = lang === 'pl' ? 'Włącz jasny motyw' : 'Use light theme';
+const darkThemeLabel = lang === 'pl' ? 'Włącz ciemny motyw' : 'Use dark theme';
 ---
 
 <button 
   id="theme-toggle" 
   class="theme-toggle"
-  aria-label="Toggle theme"
+  aria-label={darkThemeLabel}
+  data-light-label={lightThemeLabel}
+  data-dark-label={darkThemeLabel}
   type="button"
 >
-  <span class="theme-icon">🌙</span>
+  <span class="theme-icon" aria-hidden="true"></span>
 </button>
 
 <script>
   const themeToggle = document.getElementById('theme-toggle');
-  const themeIcon = themeToggle?.querySelector('.theme-icon');
   
   // Get initial theme from localStorage or system preference
   function getInitialTheme() {
@@ -26,9 +34,10 @@
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     
-    if (themeIcon) {
-      themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
-    }
+    const label = theme === 'dark'
+      ? themeToggle?.dataset.lightLabel
+      : themeToggle?.dataset.darkLabel;
+    if (label) themeToggle?.setAttribute('aria-label', label);
   }
   
   // Initialize theme
@@ -51,17 +60,15 @@
 
 <style>
   .theme-toggle {
-    background: none;
+    background: transparent;
     border: 1px solid var(--color-border);
-    border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 1.2rem;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
     padding: 0;
   }
   
@@ -71,7 +78,20 @@
   }
   
   .theme-icon {
+    position: relative;
     display: block;
-    line-height: 1;
+    width: 0.85rem;
+    height: 0.85rem;
+    border: 1.5px solid var(--color-text);
+    border-radius: 50%;
+  }
+
+  [data-theme="dark"] .theme-icon {
+    background: var(--color-text);
+    box-shadow:
+      0 -6px 0 -3px var(--color-text),
+      0 6px 0 -3px var(--color-text),
+      6px 0 0 -3px var(--color-text),
+      -6px 0 0 -3px var(--color-text);
   }
 </style>

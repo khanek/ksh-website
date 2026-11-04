@@ -7,6 +7,8 @@ alwaysApply: true
 
 This is a personal portfolio static website built with Astro 4, vanilla CSS, and deployed on Netlify.
 
+- **Canonical production URL**: https://hanek-software.com/
+
 ## Directory Layout
 
 ```

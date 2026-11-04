@@ -28,14 +28,10 @@ const pageDescription = description || t.meta.description;
       // Initialize theme immediately to prevent flash
       (function() {
         const stored = localStorage.getItem('theme');
-        const theme = stored || 'light';
+        const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
-    <script
-      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js"
-      type="module"
-    ></script>
   </head>
   <body>
     <slot />

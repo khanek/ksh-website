@@ -19,7 +19,7 @@ This project uses vanilla CSS with CSS custom properties. No Tailwind or CSS fra
 - Defines CSS custom properties (variables) for colors, spacing, typography
 - Sets up theme system with `[data-theme]` selectors
 - Includes base typography, layout utilities, and responsive design variables
-- Inter font loaded from Google Fonts
+- Fonts are loaded in `global.css` and exposed via `--font-family` (do not assume Inter)
 
 ### Print Styles
 
@@ -76,7 +76,7 @@ The `<html>` element has `data-theme="light"` or `data-theme="dark"` set dynamic
 
 ### Typography Variables
 
-- `--font-family`: Inter font stack
+- `--font-family`: primary font stack (set in `global.css`; redesigns should pick expressive faces, not Inter/Roboto/Arial)
 - `--font-size-base`: 1rem
 - `--font-size-sm`: 0.875rem
 - `--font-size-lg`: 1.125rem

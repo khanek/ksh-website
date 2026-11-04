@@ -9,64 +9,108 @@ const t = await import(`../i18n/${lang}.json`);
 
 <section class="about" id="about">
   <div class="container">
-    <div class="content">
-      <dotlottie-wc
-        src="https://lottie.host/32b05e81-7c8f-48ef-8540-af90f55aabd0/edimU40ghk.lottie"
-        style="width: 300px;height: 300px"
-        autoplay
-        loop
-      ></dotlottie-wc>
-    </div>
-    <div class="content">
+    <header class="section-heading">
+      <span class="section-kicker">02 / {lang === 'pl' ? 'Profil' : 'Profile'}</span>
       <h2>{t.about.title}</h2>
-      <div class="about-content">
-        <p>{t.about.content}</p>
-        <p>{t.about.content2}</p>
-      </div>
+      <p class="section-statement">
+        {lang === 'pl' ? 'Buduję backendy, które wytrzymują kontakt z rzeczywistością.' : 'I build backends that hold up in the real world.'}
+      </p>
+    </header>
+    <div class="experience-mark" aria-hidden="true">
+      <span class="experience-number">10</span>
+      <span class="experience-plus">+</span>
+      <span class="experience-label">{lang === 'pl' ? 'lat praktyki' : 'years shipping'}</span>
+    </div>
+    <div class="about-content">
+      <p>{t.about.content}</p>
+      <p>{t.about.content2}</p>
     </div>
   </div>
 </section>
 
 <style>
   .about {
-    padding: var(--spacing-lg) 0;
+    border-block: 1px solid var(--color-border);
+    background: var(--color-card-bg);
   }
   
   .about .container {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-lg);
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(240px, 0.8fr) minmax(170px, 0.45fr) minmax(320px, 1fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: start;
   }
-  
-  .about .content:first-child {
-    flex: 0 0 300px;
-    max-width: 300px;
+
+  .section-heading h2 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
   }
-  
-  .about .content:last-child {
-    flex: 1;
+
+  .section-statement {
+    max-width: 28rem;
+    margin-top: var(--spacing-md);
+    color: var(--color-text);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.025em;
   }
-  
+
+  .experience-mark {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding-top: 0.25rem;
+    color: var(--color-accent);
+  }
+
+  .experience-number {
+    font-size: clamp(5.5rem, 10vw, 9rem);
+    font-weight: 800;
+    line-height: 0.75;
+    letter-spacing: -0.1em;
+  }
+
+  .experience-plus {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+  }
+
+  .experience-label {
+    grid-column: 1 / -1;
+    margin-top: 1.25rem;
+    padding-top: 0.75rem;
+    color: var(--color-text-secondary);
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .about-content p {
     margin-bottom: var(--spacing-md);
-    font-size: var(--font-size-lg);
-    line-height: 1.7;
+    font-size: clamp(1rem, 1.3vw, 1.12rem);
+    line-height: 1.75;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .about .container {
-      flex-direction: column;
-      gap: var(--spacing-md);
+      grid-template-columns: 1fr 1fr;
     }
-    
-    .about .content:first-child {
-      flex: 0 0 auto;
-      max-width: 100%;
+
+    .about-content {
+      grid-column: 1 / -1;
+      max-width: 720px;
     }
-    
-    .about .content:last-child {
-      flex: 1;
+  }
+
+  @media (max-width: 560px) {
+    .about .container {
+      grid-template-columns: 1fr;
+    }
+
+    .about-content {
+      grid-column: auto;
     }
   }
   
@@ -76,8 +120,12 @@ const t = await import(`../i18n/${lang}.json`);
     }
     
     .about .container {
-      flex-direction: column;
+      display: block;
       gap: 0.5cm;
+    }
+
+    .experience-mark {
+      display: none;
     }
     
     .about-content p {

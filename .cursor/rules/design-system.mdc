@@ -1,0 +1,40 @@
+---
+description: "Visual design system goals and constraints for the portfolio redesign"
+globs:
+  - "src/styles/**/*.css"
+  - "src/**/*.astro"
+alwaysApply: false
+---
+
+# Design System
+
+Astro + vanilla CSS only. Tokens live in `src/styles/global.css` (`:root` + `[data-theme="dark"]`).
+
+## Direction
+
+- Personal brand site for **Krystian Hanek / Hanek Software** - engineer portfolio, not a SaaS marketing template.
+- Prefer a distinctive technical/editorial look over generic startup UI.
+- When redesigning, replace the legacy Inter + violet/orange gradient look with a clearer direction (new fonts + restrained accent). Do not ship purple-on-white AI defaults.
+
+## Tokens
+
+- Colors: `--color-bg`, `--color-text`, `--color-text-secondary`, `--color-accent`, `--color-border`, `--color-card-bg`, shadows.
+- Spacing: `--spacing-xs` … `--spacing-xl`.
+- Type: `--font-family` (and optional `--font-display` if added); sizes via existing `--font-size-*` or `clamp()`.
+- Layout: `--max-width`, `--content-width`.
+- Always change look through variables first; avoid hardcoding hex in components.
+
+## Composition
+
+- Hero: name as primary brand signal, one title, one subtitle, one CTA.
+- Full-bleed/atmospheric hero background OK; no inset hero cards or floating badges.
+- Sections: one purpose each (About, Skills, Projects, Contact).
+- Cards only when they aid scanning interactive/content groups - not by default.
+- Light + dark must both remain intentional after token changes.
+- Keep `print.css` usable when touching global type/color.
+
+## Do not
+
+- Add Tailwind, CSS frameworks, or React islands for styling
+- Use Inter/Roboto/Arial as the primary redesign font
+- Clutter the first viewport with stats, icon grids, or promo chips
