@@ -3,39 +3,124 @@
     "title": "Krystian Hanek - Senior Backend Engineer",
     "description": "Senior Backend Engineer z ponad 10-letnim doświadczeniem w budowaniu systemów produkcyjnych klasy enterprise. Specjalizacja w Django, AWS i skalowalnej architekturze chmurowej."
   },
-  "nav": {
-    "about": "O mnie",
+  "menu": {
+    "label": "Menu główne",
+    "profile": "Profil",
     "skills": "Umiejętności",
     "projects": "Projekty",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "cv": "CV",
+    "back": "Wróć",
+    "hint": "Strzałki: wybór, Enter: otwórz",
+    "hudFallback": "Poznań",
+    "phases": {
+      "morning": "Rano",
+      "daytime": "Dzień",
+      "afternoon": "Popołudnie",
+      "evening": "Wieczór",
+      "night": "Noc"
+    }
   },
   "hero": {
     "name": "Krystian Hanek",
     "title": "Senior Backend Engineer",
-    "subtitle": "Senior Backend Engineer specjalizujący się w skalowalnych systemach rozproszonych i architekturze chmurowej",
-    "cta": "Skontaktuj się"
+    "subtitle": "Projektuję, buduję i utrzymuję backendy produktów innych firm: Django, AWS i systemy rozproszone, na produkcji od ponad dziesięciu lat.",
+    "cta": "Napisz do mnie",
+    "lead": "Krystian Hanek, senior backend engineer, Poznań"
   },
   "about": {
     "title": "O mnie",
-    "content": "Jestem senior backend engineerem z ponad dziesięcioletnim doświadczeniem w budowaniu systemów produkcyjnych klasy enterprise. Przez większość kariery w Apptension projektowałem i dostarczałem złożone rozwiązania wykorzystujące Django, AWS oraz nowoczesne technologie cloud-native dla klientów ze Stanów Zjednoczonych, Wielkiej Brytanii, RPA i Polski.",
-    "content2": "Moją karierę inżynierską rozpocząłem w środowisku startupowym, gdzie zbudowałem solidne fundamenty w rozwiązywaniu złożonych wyzwań technicznych i dostarczaniu wartości biznesowej poprzez oprogramowanie."
+    "content": "Jestem Krystian, senior backend engineer z ponad dziesięcioletnim doświadczeniem w budowaniu systemów produkcyjnych. Większość z nich zbudowałem w Apptension, w Django i na AWS, dla klientów z USA, Wielkiej Brytanii, RPA i Polski.",
+    "content2": "Zaczynałem w startupach, gdzie trudny problem techniczny i wartość biznesowa były jedną pracą. Nadal są.",
+    "facts": [
+      "Poznań, Polska",
+      "Ponad dziesięć lat na produkcji",
+      "Klienci z czterech krajów"
+    ]
+  },
+  "profile": {
+    "arcana": "Inżynier",
+    "rankLabel": "Ranga",
+    "rankValue": "10+ lat na produkcji"
   },
   "skills": {
-    "title": "Umiejętności techniczne",
+    "title": "Technologie",
+    "intro": "Technologię dobieram do problemu, nie odwrotnie. Na tych sześciu opiera się większość mojej pracy.",
+    "toolkitTitle": "Pozostałe narzędzia",
+    "learning": "rozwijam",
+    "poster": [
+      {
+        "name": "Python",
+        "detail": "Język"
+      },
+      {
+        "name": "Django",
+        "detail": "Framework"
+      },
+      {
+        "name": "AWS",
+        "detail": "Chmura"
+      },
+      {
+        "name": "PostgreSQL",
+        "detail": "Baza danych"
+      },
+      {
+        "name": "Terraform",
+        "detail": "Infrastruktura jako kod"
+      },
+      {
+        "name": "Agenci AI",
+        "detail": "Claude Code, Codex, Cursor, MCP"
+      }
+    ],
     "categories": [
       {
-        "title": "Języki programowania",
+        "title": "Inżynieria z agentami AI",
+        "items": [
+          {
+            "name": "Claude Code",
+            "status": "known"
+          },
+          {
+            "name": "Codex",
+            "status": "known"
+          },
+          {
+            "name": "Cursor",
+            "status": "known"
+          },
+          {
+            "name": "Agent Skills",
+            "status": "known"
+          },
+          {
+            "name": "Serwery MCP",
+            "status": "known"
+          },
+          {
+            "name": "Subagenty i agenci równolegli",
+            "status": "known"
+          },
+          {
+            "name": "Reguły i AGENTS.md",
+            "status": "known"
+          }
+        ]
+      },
+      {
+        "title": "Języki",
         "items": [
           {
             "name": "Python",
             "status": "known"
           },
           {
-            "name": "JavaScript",
+            "name": "TypeScript",
             "status": "known"
           },
           {
-            "name": "TypeScript",
+            "name": "JavaScript",
             "status": "known"
           },
           {
@@ -45,7 +130,7 @@
         ]
       },
       {
-        "title": "Frameworki",
+        "title": "Backend",
         "items": [
           {
             "name": "Django",
@@ -54,11 +139,15 @@
           {
             "name": "FastAPI",
             "status": "known"
+          },
+          {
+            "name": "Celery",
+            "status": "known"
           }
         ]
       },
       {
-        "title": "Bazy danych",
+        "title": "Dane",
         "items": [
           {
             "name": "PostgreSQL",
@@ -79,7 +168,7 @@
         ]
       },
       {
-        "title": "API",
+        "title": "API i uwierzytelnianie",
         "items": [
           {
             "name": "REST",
@@ -92,64 +181,22 @@
           {
             "name": "gRPC",
             "status": "learning"
-          }
-        ]
-      },
-      {
-        "title": "Uwierzytelnianie",
-        "items": [
-          {
-            "name": "JWT",
-            "status": "known"
           },
           {
             "name": "OAuth 2.0",
             "status": "known"
           },
           {
-            "name": "Session Auth",
-            "status": "known"
-          },
-          {
-            "name": "Basic Auth",
+            "name": "JWT",
             "status": "known"
           }
         ]
       },
       {
-        "title": "Architektura",
+        "title": "Chmura i infrastruktura",
         "items": [
           {
-            "name": "Modularny Monolit",
-            "status": "known"
-          },
-          {
-            "name": "Mikrousługi",
-            "status": "known"
-          },
-          {
-            "name": "Event-Driven",
-            "status": "known"
-          },
-          {
-            "name": "Serverless",
-            "status": "known"
-          },
-          {
-            "name": "Domain-Driven Design",
-            "status": "learning"
-          }
-        ]
-      },
-      {
-        "title": "Infrastruktura",
-        "items": [
-          {
-            "name": "Docker",
-            "status": "known"
-          },
-          {
-            "name": "AWS",
+            "name": "AWS (ECS, Lambda, SQS, SNS, Step Functions, IAM)",
             "status": "known"
           },
           {
@@ -158,6 +205,10 @@
           },
           {
             "name": "AWS CDK",
+            "status": "known"
+          },
+          {
+            "name": "Docker",
             "status": "known"
           },
           {
@@ -171,51 +222,35 @@
         ]
       },
       {
-        "title": "Testowanie",
+        "title": "Architektura",
         "items": [
           {
-            "name": "Unit Tests",
+            "name": "Modularny monolit",
             "status": "known"
           },
           {
-            "name": "Integration Tests",
+            "name": "Mikrousługi",
             "status": "known"
           },
           {
-            "name": "E2E Tests",
+            "name": "Event-driven",
             "status": "known"
           },
           {
-            "name": "Load Testing",
+            "name": "Serverless",
             "status": "known"
           },
           {
-            "name": "TDD",
-            "status": "known"
+            "name": "Domain-driven design",
+            "status": "learning"
           }
         ]
       },
       {
-        "title": "Narzędzia i Praktyki",
+        "title": "Kolejki i monitoring",
         "items": [
           {
-            "name": "Git",
-            "status": "known"
-          },
-          {
-            "name": "CI/CD",
-            "status": "known"
-          },
-          {
-            "name": "Celery",
-            "status": "known"
-          },
-          {
             "name": "RabbitMQ",
-            "status": "known"
-          },
-          {
-            "name": "Prometheus/Grafana",
             "status": "known"
           },
           {
@@ -223,7 +258,40 @@
             "status": "learning"
           },
           {
-            "name": "AWS (IAM, ECS, SQS, SNS, Step Functions, etc.)",
+            "name": "Prometheus",
+            "status": "known"
+          },
+          {
+            "name": "Grafana",
+            "status": "known"
+          }
+        ]
+      },
+      {
+        "title": "Jakość i wdrażanie",
+        "items": [
+          {
+            "name": "TDD",
+            "status": "known"
+          },
+          {
+            "name": "Testy jednostkowe i integracyjne",
+            "status": "known"
+          },
+          {
+            "name": "Testy end-to-end",
+            "status": "known"
+          },
+          {
+            "name": "Testy obciążeniowe",
+            "status": "known"
+          },
+          {
+            "name": "CI/CD",
+            "status": "known"
+          },
+          {
+            "name": "Git",
             "status": "known"
           }
         ]
@@ -231,9 +299,11 @@
     ]
   },
   "projects": {
-    "title": "Doświadczenie zawodowe",
+    "title": "Wybrane projekty",
     "showMore": "Pokaż więcej",
     "showLess": "Pokaż mniej",
+    "remark": "Na produktach widnieją nazwy innych firm. Backendy za nimi są moje.",
+    "visit": "Zobacz stronę",
     "dmw": {
       "name": "DMW & Lov-map",
       "url": "https://visehub.io/",
@@ -344,7 +414,24 @@
     "title": "Kontakt",
     "email": "krystian@hanek-software.com",
     "phone": "+48 737 526 507",
-    "location": "Poznań, Polska"
+    "location": "Poznań, Polska",
+    "intro": "Masz trudny problem techniczny? Napisz albo zadzwoń.",
+    "greeting": "Napisz",
+    "mailSubject": "Wiadomość z hanek-software.com",
+    "clock": {
+      "place": "w Poznaniu",
+      "working": "Godziny pracy: odpowiem jeszcze dziś",
+      "evening": "Po godzinach: odpowiem rano",
+      "weekend": "Weekend: odpowiem w poniedziałek",
+      "fallback": "Czas środkowoeuropejski"
+    },
+    "cardTitle": "Wizytówka"
+  },
+  "footer": {
+    "navTitle": "Na tej stronie",
+    "contactTitle": "Kontakt",
+    "resumeTitle": "CV",
+    "wordmark": "Hanek Software"
   },
   "print": {
     "button": "Drukuj jako CV",

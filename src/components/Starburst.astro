@@ -1,0 +1,22 @@
+---
+/** A jagged comic-book burst, filled with currentColor. Decorative only. */
+interface Props {
+  points?: number;
+  seed?: number;
+  class?: string;
+}
+
+const { points = 12, seed = 1, class: className } = Astro.props;
+
+const vertices = Array.from({ length: points * 2 }, (_, index) => {
+  const isTip = index % 2 === 0;
+  const jitter = ((Math.sin(seed * 97 + index * 13.7) + 1) / 2) * 0.16;
+  const radius = isTip ? 0.84 + jitter : 0.5 + jitter;
+  const angle = (index / (points * 2)) * Math.PI * 2;
+  return `${(50 + Math.cos(angle) * radius * 50).toFixed(2)},${(50 + Math.sin(angle) * radius * 50).toFixed(2)}`;
+}).join(' ');
+---
+
+<svg class={className} viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+  <polygon points={vertices} fill="currentColor" />
+</svg>

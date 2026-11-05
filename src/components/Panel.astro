@@ -1,0 +1,197 @@
+---
+import RansomText from './RansomText.astro';
+
+interface Props {
+  id: string;
+  title: string;
+  lang: string;
+  tone?: 'red' | 'black' | 'white';
+}
+
+const { id, title, lang, tone = 'red' } = Astro.props;
+const t = await import(`../i18n/${lang}.json`);
+const palette = { red: 'on-red', black: 'on-black', white: 'on-white' } as const;
+---
+
+<section class:list={['screen', 'panel', `panel--${tone}`]} id={id} aria-labelledby={`${id}-title`} data-panel>
+  <div class="panel__band" aria-hidden="true"></div>
+  <div class="panel__dots" aria-hidden="true"></div>
+  <header class="panel__head">
+    <RansomText as="h2" text={title} id={`${id}-title`} tabindex={-1} palette={palette[tone]} class="panel__title" />
+    <a class="panel__back display" href="#" data-back>
+      <span class="panel__back-arrow" aria-hidden="true"></span>
+      {t.menu.back}
+    </a>
+  </header>
+  <div class="panel__body">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .panel {
+    position: relative;
+    min-height: 100svh;
+    padding: var(--margin) var(--margin) clamp(4rem, 10vw, 8rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .panel--red {
+    color: var(--p5-white);
+    background: var(--p5-red);
+  }
+
+  .panel--black {
+    color: var(--p5-white);
+    background: var(--p5-black);
+  }
+
+  .panel--white {
+    color: var(--p5-black);
+    background: var(--p5-white);
+  }
+
+  .panel__band,
+  .panel__dots {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .panel__band {
+    top: 0;
+    right: 0;
+    width: 58%;
+    height: clamp(9rem, 22vw, 17rem);
+    clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 62%);
+  }
+
+  .panel--red .panel__band {
+    background: var(--p5-black);
+  }
+
+  .panel--black .panel__band,
+  .panel--white .panel__band {
+    background: var(--p5-red);
+  }
+
+  .panel__dots {
+    inset: auto 0 0 auto;
+    width: 45%;
+    height: 50%;
+    background-image: var(--halftone);
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .panel--black .panel__dots {
+    filter: invert(1);
+    opacity: 0.5;
+  }
+
+  .panel__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--gutter);
+    margin-bottom: clamp(2.5rem, 6vw, 5rem);
+  }
+
+  .panel :global(.panel__title) {
+    font-size: var(--step-head);
+    rotate: -4deg;
+    transform-origin: left bottom;
+    margin-top: 0.4rem;
+  }
+
+  .panel :global(.panel__title:focus) {
+    outline: none;
+  }
+
+  .panel__back {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.4em;
+    min-height: 3rem;
+    padding: 0.25em 0.8em 0.2em 0.6em;
+    font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+    text-decoration: none;
+    color: var(--p5-black);
+    background: var(--p5-white);
+    clip-path: var(--slab);
+    rotate: 3deg;
+    transition: rotate var(--t-snap) var(--ease-snap), scale var(--t-snap) var(--ease-snap);
+  }
+
+  .panel--white .panel__back {
+    color: var(--p5-white);
+    background: var(--p5-black);
+  }
+
+  .panel__back-arrow {
+    width: 0.6em;
+    height: 0.7em;
+    background: var(--p5-red);
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    transition: translate var(--t-snap) var(--ease-snap);
+  }
+
+  .panel__back:hover,
+  .panel__back:focus-visible {
+    rotate: -4deg;
+    scale: 1.08;
+  }
+
+  .panel__back:hover .panel__back-arrow,
+  .panel__back:focus-visible .panel__back-arrow {
+    translate: -0.2em 0;
+  }
+
+  .panel__back:active {
+    scale: 0.96;
+  }
+
+  html:not(.js) .panel__back {
+    display: none;
+  }
+
+  /* Each panel's contents rise in behind the wipe. */
+  .panel__body > :global(*) {
+    animation: rise 520ms var(--ease-out) both;
+  }
+
+  .panel__body > :global(*:nth-child(2)) {
+    animation-delay: 80ms;
+  }
+
+  .panel__body > :global(*:nth-child(3)) {
+    animation-delay: 160ms;
+  }
+
+  .panel__body > :global(*:nth-child(n + 4)) {
+    animation-delay: 240ms;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      translate: 0 1.75rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .panel__head {
+      flex-direction: column-reverse;
+      gap: 1.5rem;
+    }
+
+    .panel__back {
+      align-self: flex-end;
+    }
+
+    .panel__band {
+      width: 80%;
+    }
+  }
+</style>

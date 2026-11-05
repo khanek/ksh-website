@@ -1,0 +1,166 @@
+---
+/**
+ * Sets a phrase as cut-out letters, each on its own tile with its own tilt.
+ * The layout is seeded from the text, so every build renders the same letters;
+ * assistive tech reads one plain copy of the phrase instead of the tiles.
+ */
+interface Props {
+  text: string;
+  as?: 'span' | 'h1' | 'h2' | 'p';
+  seed?: number;
+  /** Tile colours that read on this screen's ground. */
+  palette?: 'on-red' | 'on-black' | 'on-white';
+  class?: string;
+  id?: string;
+  tabindex?: number;
+}
+
+const { text, as: Tag = 'span', seed, palette = 'on-red', class: className, id, tabindex } = Astro.props;
+
+const tilesByPalette = {
+  'on-red': ['ink', 'paper', 'ink', 'paper', 'bare-white'],
+  'on-black': ['paper', 'red', 'paper', 'bare-white', 'red'],
+  'on-white': ['ink', 'red', 'ink', 'bare-black', 'red'],
+} as const;
+
+function hashText(value: string): number {
+  let hash = 2166136261;
+  for (const character of value) {
+    hash ^= character.codePointAt(0) ?? 0;
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function mulberry32(start: number): () => number {
+  let state = start;
+  return () => {
+    state = (state + 0x6d2b79f5) | 0;
+    let mixed = Math.imul(state ^ (state >>> 15), 1 | state);
+    mixed = (mixed + Math.imul(mixed ^ (mixed >>> 7), 61 | mixed)) ^ mixed;
+    return ((mixed ^ (mixed >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const random = mulberry32(seed ?? hashText(text));
+const tiles = tilesByPalette[palette];
+let previousTile = '';
+
+const words = text.split(' ').map((word) =>
+  Array.from(word).map((character) => {
+    let tile: string = tiles[Math.floor(random() * tiles.length)];
+    if (tile === previousTile) tile = tiles[(tiles.indexOf(tile as never) + 1) % tiles.length];
+    previousTile = tile;
+    return {
+      character,
+      tile,
+      italic: random() > 0.72,
+      rotate: (random() * 14 - 7).toFixed(1),
+      scale: (0.9 + random() * 0.24).toFixed(2),
+      lift: (random() * 0.12 - 0.06).toFixed(2),
+    };
+  }),
+);
+---
+
+<Tag class:list={['ransom', className]} id={id} tabindex={tabindex}>
+  <span class="sr-only">{text}</span>
+  <span class="ransom__tiles" aria-hidden="true">
+    {
+      words.map((letters) => (
+        <span class="ransom__word">
+          {letters.map((letter) => (
+            <span
+              class:list={['ransom__char', `ransom__char--${letter.tile}`, { 'ransom__char--italic': letter.italic }]}
+              style={`--r:${letter.rotate}deg;--s:${letter.scale};--y:${letter.lift}em`}
+            >
+              {letter.character}
+            </span>
+          ))}
+        </span>
+      ))
+    }
+  </span>
+</Tag>
+
+<style>
+  .ransom {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .ransom__tiles {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.06em 0.32em;
+  }
+
+  .ransom__word {
+    display: inline-flex;
+    white-space: nowrap;
+  }
+
+  .ransom__char {
+    display: inline-block;
+    margin-inline: -0.015em;
+    padding: 0.04em 0.07em 0.02em;
+    transform: translateY(var(--y)) rotate(var(--r)) scale(var(--s));
+  }
+
+  .ransom__char--italic {
+    font-family: var(--font-text);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 0.92em;
+  }
+
+  .ransom__char--ink {
+    color: var(--p5-white);
+    background: var(--p5-black);
+  }
+
+  .ransom__char--paper {
+    color: var(--p5-black);
+    background: var(--p5-white);
+  }
+
+  .ransom__char--red {
+    color: var(--p5-white);
+    background: var(--p5-red);
+  }
+
+  .ransom__char--bare-white {
+    color: var(--p5-white);
+  }
+
+  .ransom__char--bare-black {
+    color: var(--p5-black);
+  }
+
+  .ransom__char:not([class*='bare']):nth-child(3n) {
+    clip-path: var(--slab);
+  }
+
+  .ransom__char:not([class*='bare']):nth-child(3n + 1) {
+    clip-path: var(--slab-alt);
+  }
+
+  @media print {
+    .ransom__tiles {
+      display: none;
+    }
+
+    .ransom .sr-only {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+    }
+  }
+</style>

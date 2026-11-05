@@ -1,0 +1,181 @@
+---
+import Panel from './Panel.astro';
+
+interface Props {
+  lang: string;
+}
+
+interface SkillItem {
+  name: string;
+  status: 'known' | 'learning';
+}
+
+interface SkillCategory {
+  title: string;
+  items: SkillItem[];
+}
+
+const { lang } = Astro.props;
+const t = await import(`../i18n/${lang}.json`);
+const poster: { name: string; detail: string }[] = t.skills.poster;
+const categories: SkillCategory[] = t.skills.categories;
+---
+
+<Panel id="skills" title={t.menu.skills} lang={lang} tone="black">
+  <p class="skills__intro">{t.skills.intro}</p>
+
+  <ul class="stats">
+    {
+      poster.map((skill, index) => (
+        <li class="stat" style={`--i:${index}`}>
+          <span class="stat__name display">{skill.name}</span>
+          <span class="stat__detail">{skill.detail}</span>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="toolkit">
+    <h3 class="toolkit__title display">{t.skills.toolkitTitle}</h3>
+    <div class="toolkit__groups">
+      {
+        categories.map((category) => (
+          <section class="group">
+            <h4 class="group__title display">{category.title}</h4>
+            <ul class="group__items">
+              {category.items.map((item) => (
+                <li class:list={['skill', `skill--${item.status}`]}>
+                  {item.name}
+                  {item.status === 'learning' && <span class="skill__tag">{t.skills.learning}</span>}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</Panel>
+
+<style>
+  .skills__intro {
+    max-width: 36ch;
+    font-size: var(--step-lead);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2.5vw, 2rem) var(--gutter);
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .stat {
+    display: grid;
+    gap: 0.35rem;
+    padding: clamp(1.1rem, 2vw, 1.6rem) clamp(1.25rem, 2.2vw, 1.9rem);
+    color: var(--p5-black);
+    background: var(--p5-white);
+    clip-path: var(--slab);
+    rotate: -2deg;
+    transition: rotate var(--t-snap) var(--ease-snap), scale var(--t-snap) var(--ease-snap);
+  }
+
+  .stat:nth-child(even) {
+    color: var(--p5-white);
+    background: var(--p5-red);
+    clip-path: var(--slab-alt);
+    rotate: 2deg;
+    translate: 0 1rem;
+  }
+
+  .stat:hover {
+    rotate: -5deg;
+    scale: 1.04;
+  }
+
+  .stat__name {
+    font-size: clamp(2rem, 1.2rem + 2.6vw, 3.75rem);
+  }
+
+  .stat__detail {
+    font-weight: 600;
+  }
+
+  .toolkit {
+    margin-top: clamp(4rem, 8vw, 7rem);
+  }
+
+  .toolkit__title {
+    display: inline-block;
+    padding: 0.1em 0.4em 0.04em;
+    font-size: clamp(1.75rem, 1.2rem + 2vw, 3rem);
+    color: var(--p5-black);
+    background: var(--p5-white);
+    clip-path: var(--slab-alt);
+    rotate: -3deg;
+  }
+
+  .toolkit__groups {
+    columns: 3 18rem;
+    column-gap: clamp(2rem, 4vw, 3.5rem);
+    margin-top: 2.5rem;
+  }
+
+  .group {
+    break-inside: avoid;
+    padding-bottom: 2.25rem;
+  }
+
+  .group__title {
+    margin-bottom: 0.75rem;
+    font-size: 1.6rem;
+    color: var(--p5-red);
+  }
+
+  .group__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .skill {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5em;
+    padding: 0.3em 0.75em;
+    font-weight: 600;
+    color: var(--p5-black);
+    background: var(--p5-white);
+    clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+  }
+
+  .skill--learning {
+    color: var(--p5-white);
+    background: var(--p5-red-deep);
+  }
+
+  .skill__tag {
+    font-size: 0.8em;
+    font-weight: 800;
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    .stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 520px) {
+    .stats {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .stat:nth-child(even) {
+      translate: 0;
+    }
+  }
+</style>

@@ -1,70 +1,21 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Hero from '../../components/Hero.astro';
-import About from '../../components/About.astro';
-import Skills from '../../components/Skills.astro';
-import Projects from '../../components/Projects.astro';
-import Contact from '../../components/Contact.astro';
-import PrintButton from '../../components/PrintButton.astro';
+import Menu from '../../components/Menu.astro';
+import ProfilePanel from '../../components/ProfilePanel.astro';
+import SkillsPanel from '../../components/SkillsPanel.astro';
+import ProjectsPanel from '../../components/ProjectsPanel.astro';
+import ContactPanel from '../../components/ContactPanel.astro';
 
 const lang = 'pl';
-const currentPath = '/pl';
 const t = await import('../../i18n/pl.json');
 ---
 
 <Layout lang={lang} title={t.meta.title} description={t.meta.description}>
-  <Header lang={lang} currentPath={currentPath} />
+  <Menu lang={lang} />
   <main>
-    <Hero lang={lang} />
-    <About lang={lang} />
-    <Projects lang={lang} />
-    <Skills lang={lang} />
-    <Contact lang={lang} />
-    <div class="container utility-row">
-      <div>
-        <PrintButton lang={lang} />
-      </div>
-    </div>
+    <ProfilePanel lang={lang} />
+    <SkillsPanel lang={lang} />
+    <ProjectsPanel lang={lang} />
+    <ContactPanel lang={lang} />
   </main>
-  <footer class="container">
-    <p>© {new Date().getFullYear()} Krystian Hanek</p>
-    <p>Zbudowano z dbałością w Poznaniu.</p>
-  </footer>
 </Layout>
-
-<style>
-  main {
-    min-height: calc(100vh - 200px);
-  }
-
-  .utility-row {
-    padding-block: var(--spacing-lg);
-  }
-
-  footer {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding-block: var(--spacing-md);
-    border-top: 1px solid var(--color-border);
-  }
-
-  footer p {
-    margin: 0;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-  }
-
-  @media (max-width: 560px) {
-    footer {
-      flex-direction: column;
-    }
-  }
-  
-  @media print {
-    footer {
-      display: none !important;
-    }
-  }
-</style>

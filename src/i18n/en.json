@@ -3,26 +3,111 @@
     "title": "Krystian Hanek - Senior Backend Engineer",
     "description": "Senior Backend Engineer with over 10 years of experience building production-grade distributed systems. Specialized in Django, AWS, and scalable cloud architecture."
   },
-  "nav": {
-    "about": "About",
+  "menu": {
+    "label": "Main menu",
+    "profile": "Profile",
     "skills": "Skills",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cv": "CV",
+    "back": "Back",
+    "hint": "Arrows to move, Enter to open",
+    "hudFallback": "Poznań",
+    "phases": {
+      "morning": "Morning",
+      "daytime": "Daytime",
+      "afternoon": "Afternoon",
+      "evening": "Evening",
+      "night": "Late night"
+    }
   },
   "hero": {
     "name": "Krystian Hanek",
     "title": "Senior Backend Engineer",
-    "subtitle": "Senior Backend Engineer specializing in scalable distributed systems and cloud architecture",
-    "cta": "Get in touch"
+    "subtitle": "I design, build and run the backends behind other companies' products: Django, AWS and distributed systems, in production for over ten years.",
+    "cta": "Email me",
+    "lead": "Krystian Hanek, senior backend engineer in Poznań"
   },
   "about": {
     "title": "About",
-    "content": "I am a senior backend engineer with over a decade of experience building production-grade distributed systems. Throughout my career at Apptension, I have architected and delivered complex solutions using Django, AWS, and modern cloud-native technologies for clients across the United States, United Kingdom, South Africa, and Poland.",
-    "content2": "My engineering journey began in startup environments, where I developed a strong foundation in solving complex technical challenges and delivering business value through software."
+    "content": "I'm Krystian, a senior backend engineer with more than ten years of building production systems. Most of them I built at Apptension, in Django and on AWS, for clients in the United States, the United Kingdom, South Africa and Poland.",
+    "content2": "I started out in startups, where solving the hard technical problem and delivering business value were the same job. They still are.",
+    "facts": [
+      "Based in Poznań, Poland",
+      "More than ten years in production",
+      "Clients in four countries"
+    ]
+  },
+  "profile": {
+    "arcana": "The Engineer",
+    "rankLabel": "Rank",
+    "rankValue": "10+ years in production"
   },
   "skills": {
-    "title": "Technical Expertise",
+    "title": "Stack",
+    "intro": "Technology follows the problem, not the other way around. These six carry most of my work.",
+    "toolkitTitle": "Everything else I work with",
+    "learning": "learning",
+    "poster": [
+      {
+        "name": "Python",
+        "detail": "Language"
+      },
+      {
+        "name": "Django",
+        "detail": "Framework"
+      },
+      {
+        "name": "AWS",
+        "detail": "Cloud"
+      },
+      {
+        "name": "PostgreSQL",
+        "detail": "Database"
+      },
+      {
+        "name": "Terraform",
+        "detail": "Infrastructure as code"
+      },
+      {
+        "name": "AI agents",
+        "detail": "Claude Code, Codex, Cursor, MCP"
+      }
+    ],
     "categories": [
+      {
+        "title": "AI-assisted engineering",
+        "items": [
+          {
+            "name": "Claude Code",
+            "status": "known"
+          },
+          {
+            "name": "Codex",
+            "status": "known"
+          },
+          {
+            "name": "Cursor",
+            "status": "known"
+          },
+          {
+            "name": "Agent Skills",
+            "status": "known"
+          },
+          {
+            "name": "MCP servers",
+            "status": "known"
+          },
+          {
+            "name": "Subagents and parallel agents",
+            "status": "known"
+          },
+          {
+            "name": "Rules and AGENTS.md",
+            "status": "known"
+          }
+        ]
+      },
       {
         "title": "Languages",
         "items": [
@@ -31,11 +116,11 @@
             "status": "known"
           },
           {
-            "name": "JavaScript",
+            "name": "TypeScript",
             "status": "known"
           },
           {
-            "name": "TypeScript",
+            "name": "JavaScript",
             "status": "known"
           },
           {
@@ -45,7 +130,7 @@
         ]
       },
       {
-        "title": "Frameworks",
+        "title": "Backend",
         "items": [
           {
             "name": "Django",
@@ -54,11 +139,15 @@
           {
             "name": "FastAPI",
             "status": "known"
+          },
+          {
+            "name": "Celery",
+            "status": "known"
           }
         ]
       },
       {
-        "title": "Databases",
+        "title": "Data",
         "items": [
           {
             "name": "PostgreSQL",
@@ -79,7 +168,7 @@
         ]
       },
       {
-        "title": "APIs",
+        "title": "APIs and auth",
         "items": [
           {
             "name": "REST",
@@ -92,64 +181,22 @@
           {
             "name": "gRPC",
             "status": "learning"
-          }
-        ]
-      },
-      {
-        "title": "Authentication",
-        "items": [
-          {
-            "name": "JWT",
-            "status": "known"
           },
           {
             "name": "OAuth 2.0",
             "status": "known"
           },
           {
-            "name": "Session Auth",
-            "status": "known"
-          },
-          {
-            "name": "Basic Auth",
+            "name": "JWT",
             "status": "known"
           }
         ]
       },
       {
-        "title": "Architecture",
+        "title": "Cloud and infrastructure",
         "items": [
           {
-            "name": "Modular Monolith",
-            "status": "known"
-          },
-          {
-            "name": "Microservices",
-            "status": "known"
-          },
-          {
-            "name": "Event-Driven",
-            "status": "known"
-          },
-          {
-            "name": "Serverless",
-            "status": "known"
-          },
-          {
-            "name": "Domain-Driven Design",
-            "status": "learning"
-          }
-        ]
-      },
-      {
-        "title": "Infrastructure",
-        "items": [
-          {
-            "name": "Docker",
-            "status": "known"
-          },
-          {
-            "name": "AWS",
+            "name": "AWS (ECS, Lambda, SQS, SNS, Step Functions, IAM)",
             "status": "known"
           },
           {
@@ -158,6 +205,10 @@
           },
           {
             "name": "AWS CDK",
+            "status": "known"
+          },
+          {
+            "name": "Docker",
             "status": "known"
           },
           {
@@ -171,51 +222,35 @@
         ]
       },
       {
-        "title": "Testing",
+        "title": "Architecture",
         "items": [
           {
-            "name": "Unit Tests",
+            "name": "Modular monolith",
             "status": "known"
           },
           {
-            "name": "Integration Tests",
+            "name": "Microservices",
             "status": "known"
           },
           {
-            "name": "E2E Tests",
+            "name": "Event-driven",
             "status": "known"
           },
           {
-            "name": "Load Testing",
+            "name": "Serverless",
             "status": "known"
           },
           {
-            "name": "TDD",
-            "status": "known"
+            "name": "Domain-driven design",
+            "status": "learning"
           }
         ]
       },
       {
-        "title": "Tools & Practices",
+        "title": "Messaging and observability",
         "items": [
           {
-            "name": "Git",
-            "status": "known"
-          },
-          {
-            "name": "CI/CD",
-            "status": "known"
-          },
-          {
-            "name": "Celery",
-            "status": "known"
-          },
-          {
             "name": "RabbitMQ",
-            "status": "known"
-          },
-          {
-            "name": "Prometheus/Grafana",
             "status": "known"
           },
           {
@@ -223,7 +258,40 @@
             "status": "learning"
           },
           {
-            "name": "AWS (IAM, ECS, SQS, SNS, Step Functions, etc.)",
+            "name": "Prometheus",
+            "status": "known"
+          },
+          {
+            "name": "Grafana",
+            "status": "known"
+          }
+        ]
+      },
+      {
+        "title": "Quality and delivery",
+        "items": [
+          {
+            "name": "TDD",
+            "status": "known"
+          },
+          {
+            "name": "Unit and integration tests",
+            "status": "known"
+          },
+          {
+            "name": "End-to-end tests",
+            "status": "known"
+          },
+          {
+            "name": "Load testing",
+            "status": "known"
+          },
+          {
+            "name": "CI/CD",
+            "status": "known"
+          },
+          {
+            "name": "Git",
             "status": "known"
           }
         ]
@@ -231,9 +299,11 @@
     ]
   },
   "projects": {
-    "title": "Professional Experience",
+    "title": "Selected work",
     "showMore": "Show more",
     "showLess": "Show less",
+    "remark": "The products carry other companies' names. The backends behind them are mine.",
+    "visit": "Visit the site",
     "dmw": {
       "name": "DMW & Lov-map",
       "url": "https://visehub.io/",
@@ -344,7 +414,24 @@
     "title": "Contact",
     "email": "krystian@hanek-software.com",
     "phone": "+48 737 526 507",
-    "location": "Poznań, Poland"
+    "location": "Poznań, Poland",
+    "intro": "Have a hard technical problem? Write, or call.",
+    "greeting": "Write",
+    "mailSubject": "Hello from hanek-software.com",
+    "clock": {
+      "place": "in Poznań",
+      "working": "Working hours: expect a reply today",
+      "evening": "After hours: I'll reply in the morning",
+      "weekend": "Weekend: I'll reply on Monday",
+      "fallback": "Central European Time"
+    },
+    "cardTitle": "Calling card"
+  },
+  "footer": {
+    "navTitle": "On this page",
+    "contactTitle": "Contact",
+    "resumeTitle": "Resume",
+    "wordmark": "Hanek Software"
   },
   "print": {
     "button": "Print as CV",

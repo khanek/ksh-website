@@ -1,0 +1,479 @@
+---
+import RansomText from './RansomText.astro';
+import Starburst from './Starburst.astro';
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = await import(`../i18n/${lang}.json`);
+
+const otherLang = lang === 'en' ? 'pl' : 'en';
+const otherLangPath = lang === 'en' ? '/pl' : '/';
+const switchLabel = lang === 'pl' ? 'English version' : 'Wersja polska';
+
+const items = [
+  { href: '#profile', label: t.menu.profile, tilt: -9, shift: '16%', size: 1 },
+  { href: '#skills', label: t.menu.skills, tilt: -4, shift: '3%', size: 0.86 },
+  { href: '#projects', label: t.menu.projects, tilt: -11, shift: '11%', size: 1.04 },
+  { href: '#contact', label: t.menu.contact, tilt: -6, shift: '0%', size: 0.92 },
+  { href: '/Krystian_Hanek_resume.pdf', label: t.menu.cv, tilt: -13, shift: '24%', size: 0.74, download: true },
+];
+---
+
+<header class="screen menu" id="menu" data-screen-root>
+  <div class="menu__dots" aria-hidden="true"></div>
+  <div class="menu__field" aria-hidden="true"></div>
+  <Starburst class="menu__burst menu__burst--black" points={14} seed={3} />
+  <Starburst class="menu__burst menu__burst--red" points={11} seed={8} />
+
+  <div class="menu__stage">
+    <div
+      class="menu__hud"
+      data-hud
+      data-lang={lang}
+      data-morning={t.menu.phases.morning}
+      data-daytime={t.menu.phases.daytime}
+      data-afternoon={t.menu.phases.afternoon}
+      data-evening={t.menu.phases.evening}
+      data-night={t.menu.phases.night}
+    >
+      <p class="hud__date display">
+        <time data-hud-date>{t.menu.hudFallback}</time>
+        <span class="hud__day" data-hud-day></span>
+      </p>
+      <p class="hud__phase" data-hud-phase>{t.contact.location}</p>
+    </div>
+
+    <a href={otherLangPath} hreflang={otherLang} lang={otherLang} aria-label={switchLabel} class="menu__lang display" data-lang-link>
+      {otherLang.toUpperCase()}
+    </a>
+
+    <div class="menu__id">
+      <h1 class="menu__title">
+        <RansomText text={t.hero.name} class="menu__name" />
+        <span class="menu__role display">{t.hero.title}</span>
+      </h1>
+      <p class="menu__lead">{t.hero.subtitle}</p>
+    </div>
+
+    <nav class="menu__nav" aria-label={t.menu.label}>
+      <ol class="menu__list">
+        {
+          items.map((item, index) => (
+            <li class="menu__entry" style={`--tilt:${item.tilt}deg;--shift:${item.shift};--size:${item.size};--i:${index}`}>
+              <a class="menu__item display" href={item.href} data-menu-item download={item.download ? '' : undefined}>
+                <span class="menu__slab" aria-hidden="true" />
+                <span class="menu__word">{item.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+
+    <p class="menu__hint">{t.menu.hint}</p>
+  </div>
+</header>
+
+<script>
+  import { getDayPhase, getPoznanTime, localeFor, POZNAN_TIME_ZONE } from '../scripts/poznan-time';
+
+  const hud = document.querySelector<HTMLElement>('[data-hud]');
+
+  function renderHud(element: HTMLElement) {
+    const date = element.querySelector<HTMLTimeElement>('[data-hud-date]');
+    const day = element.querySelector('[data-hud-day]');
+    const phase = element.querySelector('[data-hud-phase]');
+    if (!date || !day || !phase) return;
+
+    const now = new Date();
+    const time = getPoznanTime(now);
+    const pad = (value: number) => String(value).padStart(2, '0');
+    const isPolish = element.dataset.lang === 'pl';
+
+    date.textContent = isPolish ? `${pad(time.day)}.${pad(time.month)}` : `${pad(time.month)}/${pad(time.day)}`;
+    date.dateTime = now.toISOString();
+    day.textContent = new Intl.DateTimeFormat(localeFor(element.dataset.lang), { timeZone: POZNAN_TIME_ZONE, weekday: 'short' })
+      .format(now)
+      .replace('.', '')
+      .toUpperCase();
+    phase.textContent = element.dataset[getDayPhase(time.hour)] ?? '';
+  }
+
+  if (hud) {
+    renderHud(hud);
+    window.setInterval(() => renderHud(hud), 30_000);
+  }
+</script>
+
+<style>
+  .menu {
+    position: relative;
+    min-height: 100svh;
+    overflow: hidden;
+    color: var(--p5-white);
+    background: var(--p5-red);
+    isolation: isolate;
+  }
+
+  .menu__dots,
+  .menu__field {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .menu__dots {
+    background-image: var(--halftone);
+    clip-path: polygon(0 0, 46% 0, 30% 100%, 0 100%);
+  }
+
+  .menu__field {
+    background: var(--p5-black);
+    clip-path: polygon(52% 0, 100% 0, 100% 100%, 36% 100%);
+  }
+
+  .menu :global(.menu__burst) {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .menu :global(.menu__burst--black) {
+    top: -9rem;
+    left: -8rem;
+    width: clamp(20rem, 36vw, 34rem);
+    color: var(--p5-black);
+    animation: burst-spin 60s linear infinite;
+  }
+
+  .menu :global(.menu__burst--red) {
+    right: -6rem;
+    bottom: -7rem;
+    width: clamp(12rem, 22vw, 22rem);
+    color: var(--p5-red);
+    animation: burst-spin 80s linear infinite reverse;
+  }
+
+  @keyframes burst-spin {
+    to {
+      rotate: 360deg;
+    }
+  }
+
+  .menu__stage {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto 1fr auto;
+    gap: var(--gutter);
+    min-height: 100svh;
+    padding: var(--margin);
+  }
+
+  .menu__hud {
+    grid-column: 1 / span 5;
+    grid-row: 1;
+    align-self: start;
+    rotate: -6deg;
+    translate: 0.4rem 0.6rem;
+  }
+
+  .hud__date {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.35em;
+    font-size: clamp(2.6rem, 1.5rem + 3.4vw, 5rem);
+  }
+
+  .hud__date time {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hud__day {
+    padding: 0.08em 0.2em 0.02em;
+    font-size: 0.42em;
+    color: var(--p5-black);
+    background: var(--p5-white);
+    clip-path: var(--slab);
+  }
+
+  .hud__phase {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.15em 0.6em;
+    font-size: var(--step-lead);
+    font-weight: 800;
+    font-style: italic;
+    color: var(--p5-black);
+    background: var(--p5-white);
+    clip-path: var(--slab-alt);
+  }
+
+  .menu__lang {
+    grid-column: 12;
+    grid-row: 1;
+    justify-self: end;
+    align-self: start;
+    display: grid;
+    place-items: center;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    padding: 0.2em 0.5em;
+    font-size: 1.75rem;
+    text-decoration: none;
+    color: var(--p5-black);
+    background: var(--p5-white);
+    clip-path: var(--slab);
+    transition: rotate var(--t-snap) var(--ease-snap), scale var(--t-snap) var(--ease-snap);
+  }
+
+  .menu__lang:hover,
+  .menu__lang:focus-visible {
+    rotate: -8deg;
+    scale: 1.1;
+  }
+
+  .menu__id {
+    grid-column: 1 / span 6;
+    grid-row: 2 / span 2;
+    align-self: end;
+    max-width: 40rem;
+  }
+
+  .menu__title {
+    display: grid;
+    justify-items: start;
+    gap: 0.9rem;
+    font-weight: 400;
+  }
+
+  .menu :global(.menu__name) {
+    font-size: var(--step-giant);
+  }
+
+  .menu__role {
+    padding: 0.12em 0.4em 0.06em;
+    font-size: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+    color: var(--p5-white);
+    background: var(--p5-black);
+    clip-path: var(--slab-alt);
+    rotate: -3deg;
+  }
+
+  .menu__lead {
+    max-width: 34ch;
+    margin-top: 1.75rem;
+    padding: 1rem 1.25rem 1.1rem;
+    font-size: var(--step-body);
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--p5-black);
+    background: var(--p5-white);
+    clip-path: polygon(0 4%, 100% 0, 98% 100%, 2% 94%);
+  }
+
+  .menu__nav {
+    grid-column: 7 / -1;
+    grid-row: 1 / -1;
+    align-self: center;
+  }
+
+  .menu__list {
+    display: grid;
+    justify-items: start;
+    gap: clamp(0.1rem, 1.2svh, 0.9rem);
+  }
+
+  .menu__entry {
+    rotate: var(--tilt);
+    translate: var(--shift) 0;
+    font-size: calc(var(--step-menu) * var(--size));
+    animation: slam-in 620ms var(--ease-snap) both;
+    animation-delay: calc(var(--i) * 70ms + 140ms);
+  }
+
+  @keyframes slam-in {
+    from {
+      opacity: 0;
+      translate: 70vw 0;
+    }
+  }
+
+  .menu__item {
+    position: relative;
+    display: inline-block;
+    padding: 0.02em 0.22em 0;
+    text-decoration: none;
+    color: var(--p5-white);
+    isolation: isolate;
+    transition: scale var(--t-snap) var(--ease-snap), rotate var(--t-snap) var(--ease-snap), color 80ms linear;
+  }
+
+  .menu__word {
+    display: inline-block;
+    animation: sway 3.4s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i) * -0.7s);
+  }
+
+  @keyframes sway {
+    from {
+      rotate: -1.2deg;
+    }
+    to {
+      rotate: 1.2deg;
+    }
+  }
+
+  .menu__slab,
+  .menu__item::before {
+    position: absolute;
+    inset: 0.04em -0.06em -0.02em;
+    z-index: -1;
+    clip-path: var(--slab);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--t-snap) var(--ease-snap);
+  }
+
+  .menu__slab {
+    background: var(--p5-white);
+  }
+
+  .menu__item::before {
+    content: '';
+    z-index: -2;
+    background: var(--p5-red);
+    translate: 0.14em 0.1em;
+    transition-delay: 40ms;
+  }
+
+  .menu__item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: 0.5em;
+    height: 0.56em;
+    background: var(--p5-red);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    translate: -0.4em -50%;
+    scale: 0;
+    transition: scale var(--t-snap) var(--ease-snap);
+  }
+
+  .menu__item:hover,
+  .menu__item:focus-visible {
+    color: var(--p5-black);
+    scale: 1.08;
+    rotate: -3deg;
+  }
+
+  .menu__item:hover .menu__word,
+  .menu__item:focus-visible .menu__word {
+    animation-play-state: paused;
+  }
+
+  .menu__item:hover .menu__slab,
+  .menu__item:focus-visible .menu__slab,
+  .menu__item:hover::before,
+  .menu__item:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  .menu__item:hover::after,
+  .menu__item:focus-visible::after {
+    scale: 1;
+  }
+
+  .menu__item:active {
+    scale: 0.98;
+  }
+
+  .menu__item:focus-visible {
+    outline: none;
+    box-shadow: none; /* taste-skill-ignore: removes the global focus halo here */
+  }
+
+  .menu__hint {
+    grid-column: 8 / -1;
+    grid-row: 3;
+    justify-self: end;
+    font-size: var(--step-small);
+    font-weight: 600;
+    color: var(--p5-white);
+  }
+
+  @media (hover: none) {
+    .menu__hint {
+      display: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .menu__stage {
+      grid-template-rows: auto auto auto;
+      align-content: start;
+      gap: 2rem;
+    }
+
+    .menu__dots {
+      clip-path: none;
+    }
+
+    .menu__field {
+      clip-path: polygon(0 58%, 100% 48%, 100% 100%, 0 100%);
+    }
+
+    .menu__hud {
+      grid-column: 1 / span 9;
+    }
+
+    .menu__lang {
+      grid-column: 10 / -1;
+    }
+
+    .menu__id {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+
+    .menu__nav {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      padding: 1.5rem 0 3rem;
+    }
+
+    .menu__entry {
+      font-size: calc(clamp(2.6rem, 1rem + 8.5vw, 6rem) * var(--size));
+      translate: calc(var(--shift) * -0.9) 0;
+    }
+
+    .menu__list {
+      justify-items: end;
+    }
+
+    .menu__hud {
+      padding-bottom: 1rem;
+    }
+
+    .menu__hint {
+      display: none;
+    }
+  }
+
+  @media (max-width: 900px) and (max-height: 1100px) {
+    .menu__field {
+      clip-path: polygon(0 64%, 100% 54%, 100% 100%, 0 100%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu__entry,
+    .menu__word,
+    .menu :global(.menu__burst) {
+      animation: none;
+    }
+  }
+</style>

@@ -21,19 +21,36 @@ const pageDescription = description || t.meta.description;
     <meta charset="UTF-8" />
     <meta name="description" content={pageDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#e5001c" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,600;0,800;1,800&display=swap"
+      rel="stylesheet"
+    />
     <title>{pageTitle}</title>
     <script is:inline>
-      // Initialize theme immediately to prevent flash
-      (function() {
-        const stored = localStorage.getItem('theme');
-        const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
+      // Runs before paint so a deep link (/#projects) never flashes the menu first.
+      (function () {
+        const root = document.documentElement;
+        const screens = ['profile', 'skills', 'projects', 'contact'];
+        const hash = location.hash.slice(1);
+        root.classList.add('js');
+        root.dataset.screen = screens.includes(hash) ? hash : 'menu';
       })();
     </script>
   </head>
   <body>
     <slot />
+    <div class="wipe" aria-hidden="true" data-wipe>
+      <span class="wipe__band wipe__band--black"></span>
+      <span class="wipe__band wipe__band--red"></span>
+    </div>
+    <script>
+      import { initMenuRouter } from '../scripts/menu-router';
+      initMenuRouter(document.documentElement);
+    </script>
   </body>
 </html>

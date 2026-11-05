@@ -21,6 +21,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# design QA screenshots and inspector reports
+.taste-skill/
+
 # IDE
 .vscode/
 .idea/

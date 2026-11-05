@@ -1,178 +1,185 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
-
 :root {
-  --color-bg: #f3f4ef;
-  --color-surface: #e8eae3;
-  --color-text: #151714;
-  --color-text-secondary: #62685f;
-  --color-accent: #1f6b45;
-  --color-accent-strong: #0e4f31;
-  --color-accent-contrast: #f5ff9d;
-  --color-accent-hover: #0e4f31;
-  --color-border: #c8cbc2;
-  --color-card-bg: #f8f9f4;
-  --color-shadow: rgba(21, 23, 20, 0.08);
-  --color-shadow-hover: rgba(21, 23, 20, 0.14);
-  --grid-line: rgba(21, 23, 20, 0.055);
+  --p5-red: #e5001c;
+  --p5-red-deep: #b30016;
+  --p5-black: #0d0d0d;
+  --p5-white: #ffffff;
 
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 4rem;
-  --spacing-xl: 7rem;
+  --font-display: 'Anton', 'Impact', 'Arial Narrow Bold', sans-serif;
+  --font-text: 'Archivo', system-ui, sans-serif;
 
-  --font-family: 'Manrope', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-  --font-size-base: 1rem;
-  --font-size-sm: 0.875rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 2rem;
-  --font-size-4xl: 2.5rem;
-  
-  --max-width: 1320px;
-  --content-width: 760px;
-  --header-height: 76px;
+  --step-small: 0.9375rem;
+  --step-body: clamp(1rem, 0.95rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.2rem, 1rem + 0.8vw, 1.625rem);
+  --step-head: clamp(2.75rem, 1.5rem + 5vw, 6.5rem);
+  --step-menu: min(clamp(2.6rem, 0.8rem + 6.6vw, 7.75rem), 11.5svh);
+  --step-giant: clamp(3.25rem, 1rem + 8vw, 9.5rem);
+
+  --margin: clamp(1rem, 3vw, 2.5rem);
+  --gutter: clamp(1rem, 2.4vw, 2rem);
+
+  --ease-snap: cubic-bezier(0.2, 1.4, 0.4, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-snap: 220ms;
+  --t-wipe: 560ms;
+
+  /* Jagged slab: the cut-paper block every highlight sits on. */
+  --slab: polygon(2% 8%, 97% 0%, 100% 86%, 4% 100%);
+  --slab-alt: polygon(0% 0%, 100% 12%, 96% 100%, 3% 90%);
+  --halftone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Ccircle cx='3.5' cy='3.5' r='2.6' fill='%23000' fill-opacity='.22'/%3E%3Ccircle cx='10.5' cy='10.5' r='2.6' fill='%23000' fill-opacity='.22'/%3E%3C/svg%3E");
 }
 
-[data-theme="dark"] {
-  --color-bg: #101310;
-  --color-surface: #181d19;
-  --color-text: #edf0e9;
-  --color-text-secondary: #9ca49a;
-  --color-accent: #9ee6b7;
-  --color-accent-strong: #c7f6d5;
-  --color-accent-contrast: #162219;
-  --color-accent-hover: #c7f6d5;
-  --color-border: #343b35;
-  --color-card-bg: #161a17;
-  --color-shadow: rgba(0, 0, 0, 0.2);
-  --color-shadow-hover: rgba(0, 0, 0, 0.32);
-  --grid-line: rgba(237, 240, 233, 0.055);
-}
-
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--header-height);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--p5-black);
 }
 
 body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  line-height: 1.6;
-  color: var(--color-text);
-  background:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
-    var(--color-bg);
-  background-size: 48px 48px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100svh;
+  font-family: var(--font-text);
+  font-size: var(--step-body);
+  line-height: 1.5;
+  color: var(--p5-white);
+  background: var(--p5-black);
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
 a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color 0.2s ease;
+  color: inherit;
 }
 
-a:hover {
-  color: var(--color-accent-hover);
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
 
-::selection {
-  color: var(--color-accent-contrast);
-  background: var(--color-accent);
+ul,
+ol {
+  list-style: none;
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 4px;
+  outline: 4px solid var(--p5-white);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 9px var(--p5-black); /* taste-skill-ignore: focus ring needs a dark halo on red grounds */
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.05;
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-text);
-  letter-spacing: -0.045em;
+::selection {
+  color: var(--p5-white);
+  background: var(--p5-black);
 }
 
-h1 {
-  font-size: var(--font-size-4xl);
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-h2 {
-  font-size: var(--font-size-3xl);
-}
-
-h3 {
-  font-size: var(--font-size-2xl);
-}
-
-p {
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-text-secondary);
-}
-
-.container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding-inline: clamp(1.25rem, 4vw, 4rem);
-}
-
-.content {
-  max-width: var(--content-width);
-  margin: 0 auto;
-}
-
-section {
-  position: relative;
-  padding-block: var(--spacing-xl);
-}
-
-.section-kicker {
-  display: block;
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-accent);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: 0.005em;
   text-transform: uppercase;
 }
 
-@media (max-width: 768px) {
-  :root {
-    --spacing-lg: 3rem;
-    --spacing-xl: 5rem;
-    --font-size-4xl: 2rem;
-    --font-size-3xl: 1.75rem;
-  }
+/* App mode: exactly one screen at a time, chosen by html[data-screen]. */
+html[data-screen] .screen {
+  display: none;
+}
 
-  body {
-    background-size: 32px 32px;
+html[data-screen='menu'] #menu,
+html[data-screen='profile'] #profile,
+html[data-screen='skills'] #skills,
+html[data-screen='projects'] #projects,
+html[data-screen='contact'] #contact {
+  display: block;
+}
+
+/* The slash between screens: two skewed bands sweep across, the swap happens under them. */
+.wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.wipe.is-wiping {
+  visibility: visible;
+}
+
+.wipe__band {
+  position: absolute;
+  inset: -20% -40%;
+  transform: translateX(-120%) skewX(-18deg);
+}
+
+.wipe__band--black {
+  background: var(--p5-black);
+}
+
+.wipe__band--red {
+  inset: -20% -10%;
+  background: var(--p5-red);
+}
+
+.wipe.is-wiping .wipe__band--black {
+  animation: wipe-band var(--t-wipe) var(--ease-out) both;
+}
+
+.wipe.is-wiping .wipe__band--red {
+  animation: wipe-band var(--t-wipe) var(--ease-out) 70ms both;
+}
+
+@keyframes wipe-band {
+  0% {
+    transform: translateX(-130%) skewX(-18deg);
+  }
+  45%,
+  55% {
+    transform: translateX(0) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(130%) skewX(-18deg);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .wipe {
+    display: none;
   }
 }

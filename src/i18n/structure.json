@@ -3,25 +3,77 @@
     "title": "meta.title",
     "description": "meta.description"
   },
-  "nav": {
-    "about": "nav.about",
-    "skills": "nav.skills",
-    "projects": "nav.projects",
-    "contact": "nav.contact"
+  "menu": {
+    "label": "menu.label",
+    "profile": "menu.profile",
+    "skills": "menu.skills",
+    "projects": "menu.projects",
+    "contact": "menu.contact",
+    "cv": "menu.cv",
+    "back": "menu.back",
+    "hint": "menu.hint",
+    "hudFallback": "menu.hudFallback",
+    "phases": {
+      "morning": "menu.phases.morning",
+      "daytime": "menu.phases.daytime",
+      "afternoon": "menu.phases.afternoon",
+      "evening": "menu.phases.evening",
+      "night": "menu.phases.night"
+    }
   },
   "hero": {
     "name": "hero.name",
     "title": "hero.title",
     "subtitle": "hero.subtitle",
-    "cta": "hero.cta"
+    "cta": "hero.cta",
+    "lead": "hero.lead"
   },
   "about": {
     "title": "about.title",
     "content": "about.content",
-    "content2": "about.content2"
+    "content2": "about.content2",
+    "facts": [
+      "about.facts.0",
+      "about.facts.1",
+      "about.facts.2"
+    ]
+  },
+  "profile": {
+    "arcana": "profile.arcana",
+    "rankLabel": "profile.rankLabel",
+    "rankValue": "profile.rankValue"
   },
   "skills": {
     "title": "skills.title",
+    "intro": "skills.intro",
+    "toolkitTitle": "skills.toolkitTitle",
+    "learning": "skills.learning",
+    "poster": [
+      {
+        "name": "skills.poster.0.name",
+        "detail": "skills.poster.0.detail"
+      },
+      {
+        "name": "skills.poster.1.name",
+        "detail": "skills.poster.1.detail"
+      },
+      {
+        "name": "skills.poster.2.name",
+        "detail": "skills.poster.2.detail"
+      },
+      {
+        "name": "skills.poster.3.name",
+        "detail": "skills.poster.3.detail"
+      },
+      {
+        "name": "skills.poster.4.name",
+        "detail": "skills.poster.4.detail"
+      },
+      {
+        "name": "skills.poster.5.name",
+        "detail": "skills.poster.5.detail"
+      }
+    ],
     "categories": [
       {
         "title": "skills.categories.0.title",
@@ -41,6 +93,18 @@
           {
             "name": "skills.categories.0.items.3.name",
             "status": "skills.categories.0.items.3.status"
+          },
+          {
+            "name": "skills.categories.0.items.4.name",
+            "status": "skills.categories.0.items.4.status"
+          },
+          {
+            "name": "skills.categories.0.items.5.name",
+            "status": "skills.categories.0.items.5.status"
+          },
+          {
+            "name": "skills.categories.0.items.6.name",
+            "status": "skills.categories.0.items.6.status"
           }
         ]
       },
@@ -54,6 +118,14 @@
           {
             "name": "skills.categories.1.items.1.name",
             "status": "skills.categories.1.items.1.status"
+          },
+          {
+            "name": "skills.categories.1.items.2.name",
+            "status": "skills.categories.1.items.2.status"
+          },
+          {
+            "name": "skills.categories.1.items.3.name",
+            "status": "skills.categories.1.items.3.status"
           }
         ]
       },
@@ -71,10 +143,6 @@
           {
             "name": "skills.categories.2.items.2.name",
             "status": "skills.categories.2.items.2.status"
-          },
-          {
-            "name": "skills.categories.2.items.3.name",
-            "status": "skills.categories.2.items.3.status"
           }
         ]
       },
@@ -92,6 +160,10 @@
           {
             "name": "skills.categories.3.items.2.name",
             "status": "skills.categories.3.items.2.status"
+          },
+          {
+            "name": "skills.categories.3.items.3.name",
+            "status": "skills.categories.3.items.3.status"
           }
         ]
       },
@@ -113,6 +185,10 @@
           {
             "name": "skills.categories.4.items.3.name",
             "status": "skills.categories.4.items.3.status"
+          },
+          {
+            "name": "skills.categories.4.items.4.name",
+            "status": "skills.categories.4.items.4.status"
           }
         ]
       },
@@ -138,6 +214,10 @@
           {
             "name": "skills.categories.5.items.4.name",
             "status": "skills.categories.5.items.4.status"
+          },
+          {
+            "name": "skills.categories.5.items.5.name",
+            "status": "skills.categories.5.items.5.status"
           }
         ]
       },
@@ -163,10 +243,6 @@
           {
             "name": "skills.categories.6.items.4.name",
             "status": "skills.categories.6.items.4.status"
-          },
-          {
-            "name": "skills.categories.6.items.5.name",
-            "status": "skills.categories.6.items.5.status"
           }
         ]
       },
@@ -188,10 +264,6 @@
           {
             "name": "skills.categories.7.items.3.name",
             "status": "skills.categories.7.items.3.status"
-          },
-          {
-            "name": "skills.categories.7.items.4.name",
-            "status": "skills.categories.7.items.4.status"
           }
         ]
       },
@@ -221,10 +293,6 @@
           {
             "name": "skills.categories.8.items.5.name",
             "status": "skills.categories.8.items.5.status"
-          },
-          {
-            "name": "skills.categories.8.items.6.name",
-            "status": "skills.categories.8.items.6.status"
           }
         ]
       }
@@ -234,6 +302,8 @@
     "title": "projects.title",
     "showMore": "projects.showMore",
     "showLess": "projects.showLess",
+    "remark": "projects.remark",
+    "visit": "projects.visit",
     "dmw": {
       "name": "projects.dmw.name",
       "url": "projects.dmw.url",
@@ -344,7 +414,24 @@
     "title": "contact.title",
     "email": "contact.email",
     "phone": "contact.phone",
-    "location": "contact.location"
+    "location": "contact.location",
+    "intro": "contact.intro",
+    "greeting": "contact.greeting",
+    "mailSubject": "contact.mailSubject",
+    "clock": {
+      "place": "contact.clock.place",
+      "working": "contact.clock.working",
+      "evening": "contact.clock.evening",
+      "weekend": "contact.clock.weekend",
+      "fallback": "contact.clock.fallback"
+    },
+    "cardTitle": "contact.cardTitle"
+  },
+  "footer": {
+    "navTitle": "footer.navTitle",
+    "contactTitle": "footer.contactTitle",
+    "resumeTitle": "footer.resumeTitle",
+    "wordmark": "footer.wordmark"
   },
   "print": {
     "button": "print.button",
