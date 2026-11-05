@@ -1,6 +1,6 @@
 :root {
-  --p5-red: #e5001c;
-  --p5-red-deep: #b30016;
+  --p5-accent: #00843b;
+  --p5-accent-deep: #005c29;
   --p5-black: #0d0d0d;
   --p5-white: #ffffff;
 
@@ -79,7 +79,7 @@ ol {
 :focus-visible {
   outline: 4px solid var(--p5-white);
   outline-offset: 3px;
-  box-shadow: 0 0 0 9px var(--p5-black); /* taste-skill-ignore: focus ring needs a dark halo on red grounds */
+  box-shadow: 0 0 0 9px var(--p5-black); /* taste-skill-ignore: focus ring needs a dark halo on accent grounds */
 }
 
 ::selection {
@@ -144,16 +144,16 @@ html[data-screen='contact'] #contact {
   background: var(--p5-black);
 }
 
-.wipe__band--red {
+.wipe__band--accent {
   inset: -20% -10%;
-  background: var(--p5-red);
+  background: var(--p5-accent);
 }
 
 .wipe.is-wiping .wipe__band--black {
   animation: wipe-band var(--t-wipe) var(--ease-out) both;
 }
 
-.wipe.is-wiping .wipe__band--red {
+.wipe.is-wiping .wipe__band--accent {
   animation: wipe-band var(--t-wipe) var(--ease-out) 70ms both;
 }
 

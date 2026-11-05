@@ -26,7 +26,7 @@ const items = [
   <div class="menu__dots" aria-hidden="true"></div>
   <div class="menu__field" aria-hidden="true"></div>
   <Starburst class="menu__burst menu__burst--black" points={14} seed={3} />
-  <Starburst class="menu__burst menu__burst--red" points={11} seed={8} />
+  <Starburst class="menu__burst menu__burst--accent" points={11} seed={8} />
 
   <div class="menu__stage">
     <div
@@ -114,7 +114,7 @@ const items = [
     min-height: 100svh;
     overflow: hidden;
     color: var(--p5-white);
-    background: var(--p5-red);
+    background: var(--p5-accent);
     isolation: isolate;
   }
 
@@ -149,11 +149,11 @@ const items = [
     animation: burst-spin 60s linear infinite;
   }
 
-  .menu :global(.menu__burst--red) {
+  .menu :global(.menu__burst--accent) {
     right: -6rem;
     bottom: -7rem;
     width: clamp(12rem, 22vw, 22rem);
-    color: var(--p5-red);
+    color: var(--p5-accent);
     animation: burst-spin 80s linear infinite reverse;
   }
 
@@ -344,7 +344,7 @@ const items = [
   .menu__item::before {
     content: '';
     z-index: -2;
-    background: var(--p5-red);
+    background: var(--p5-accent);
     translate: 0.14em 0.1em;
     transition-delay: 40ms;
   }
@@ -356,7 +356,7 @@ const items = [
     right: 100%;
     width: 0.5em;
     height: 0.56em;
-    background: var(--p5-red);
+    background: var(--p5-accent);
     clip-path: polygon(0 0, 100% 50%, 0 100%);
     translate: -0.4em -50%;
     scale: 0;

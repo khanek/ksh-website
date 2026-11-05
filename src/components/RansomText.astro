@@ -9,18 +9,18 @@ interface Props {
   as?: 'span' | 'h1' | 'h2' | 'p';
   seed?: number;
   /** Tile colours that read on this screen's ground. */
-  palette?: 'on-red' | 'on-black' | 'on-white';
+  palette?: 'on-accent' | 'on-black' | 'on-white';
   class?: string;
   id?: string;
   tabindex?: number;
 }
 
-const { text, as: Tag = 'span', seed, palette = 'on-red', class: className, id, tabindex } = Astro.props;
+const { text, as: Tag = 'span', seed, palette = 'on-accent', class: className, id, tabindex } = Astro.props;
 
 const tilesByPalette = {
-  'on-red': ['ink', 'paper', 'ink', 'paper', 'bare-white'],
-  'on-black': ['paper', 'red', 'paper', 'bare-white', 'red'],
-  'on-white': ['ink', 'red', 'ink', 'bare-black', 'red'],
+  'on-accent': ['ink', 'paper', 'ink', 'paper', 'bare-white'],
+  'on-black': ['paper', 'accent', 'paper', 'bare-white', 'accent'],
+  'on-white': ['ink', 'accent', 'ink', 'bare-black', 'accent'],
 } as const;
 
 function hashText(value: string): number {
@@ -127,9 +127,9 @@ const words = text.split(' ').map((word) =>
     background: var(--p5-white);
   }
 
-  .ransom__char--red {
+  .ransom__char--accent {
     color: var(--p5-white);
-    background: var(--p5-red);
+    background: var(--p5-accent);
   }
 
   .ransom__char--bare-white {

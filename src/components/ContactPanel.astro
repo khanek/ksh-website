@@ -19,7 +19,7 @@ const mapUrl = 'https://www.openstreetmap.org/search?query=Pozna%C5%84%2C%20Pola
 <Panel id="contact" title={t.menu.contact} lang={lang} tone="black">
   <div class="card">
     <Starburst class="card__burst" points={16} seed={5} />
-    <RansomText text={t.contact.cardTitle} palette="on-red" class="card__title" />
+    <RansomText text={t.contact.cardTitle} palette="on-accent" class="card__title" />
     <p class="card__intro">{t.contact.intro}</p>
 
     <ul class="card__lines">
@@ -88,7 +88,7 @@ const mapUrl = 'https://www.openstreetmap.org/search?query=Pozna%C5%84%2C%20Pola
     margin-inline: auto;
     padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 4.5rem);
     color: var(--p5-white);
-    background: var(--p5-red);
+    background: var(--p5-accent);
     clip-path: polygon(0 2%, 98% 0, 100% 97%, 3% 100%);
     rotate: -1.5deg;
     isolation: isolate;

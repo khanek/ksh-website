@@ -5,12 +5,12 @@ interface Props {
   id: string;
   title: string;
   lang: string;
-  tone?: 'red' | 'black' | 'white';
+  tone?: 'accent' | 'black' | 'white';
 }
 
-const { id, title, lang, tone = 'red' } = Astro.props;
+const { id, title, lang, tone = 'accent' } = Astro.props;
 const t = await import(`../i18n/${lang}.json`);
-const palette = { red: 'on-red', black: 'on-black', white: 'on-white' } as const;
+const palette = { accent: 'on-accent', black: 'on-black', white: 'on-white' } as const;
 ---
 
 <section class:list={['screen', 'panel', `panel--${tone}`]} id={id} aria-labelledby={`${id}-title`} data-panel>
@@ -37,9 +37,9 @@ const palette = { red: 'on-red', black: 'on-black', white: 'on-white' } as const
     isolation: isolate;
   }
 
-  .panel--red {
+  .panel--accent {
     color: var(--p5-white);
-    background: var(--p5-red);
+    background: var(--p5-accent);
   }
 
   .panel--black {
@@ -67,13 +67,13 @@ const palette = { red: 'on-red', black: 'on-black', white: 'on-white' } as const
     clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 62%);
   }
 
-  .panel--red .panel__band {
+  .panel--accent .panel__band {
     background: var(--p5-black);
   }
 
   .panel--black .panel__band,
   .panel--white .panel__band {
-    background: var(--p5-red);
+    background: var(--p5-accent);
   }
 
   .panel__dots {
@@ -132,7 +132,7 @@ const palette = { red: 'on-red', black: 'on-black', white: 'on-white' } as const
   .panel__back-arrow {
     width: 0.6em;
     height: 0.7em;
-    background: var(--p5-red);
+    background: var(--p5-accent);
     clip-path: polygon(100% 0, 0 50%, 100% 100%);
     transition: translate var(--t-snap) var(--ease-snap);
   }

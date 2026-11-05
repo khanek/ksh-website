@@ -20,7 +20,7 @@ const projectKeys = ['dmw', 'saas', 'kandua', 'worldexpo', 'questpass', 'less'] 
 const projects = projectKeys.map((key) => ({ key, ...(t.projects[key] as Project) }));
 ---
 
-<Panel id="projects" title={t.menu.projects} lang={lang} tone="red">
+<Panel id="projects" title={t.menu.projects} lang={lang} tone="accent">
   <p class="quests__remark">{t.projects.remark}</p>
 
   <div class="quests" data-quests>
@@ -155,7 +155,7 @@ const projects = projectKeys.map((key) => ({ key, ...(t.projects[key] as Project
 
   .quest__tab:focus-visible {
     outline-offset: -8px;
-    outline-color: var(--p5-red);
+    outline-color: var(--p5-accent);
     box-shadow: none; /* taste-skill-ignore: removes the global focus halo here */
   }
 
@@ -204,7 +204,7 @@ const projects = projectKeys.map((key) => ({ key, ...(t.projects[key] as Project
     left: 0;
     width: 0.95rem;
     height: 0.95rem;
-    background: var(--p5-red);
+    background: var(--p5-accent);
     clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   }
 
@@ -231,7 +231,7 @@ const projects = projectKeys.map((key) => ({ key, ...(t.projects[key] as Project
     font-size: 1.5rem;
     text-decoration: none;
     color: var(--p5-white);
-    background: var(--p5-red);
+    background: var(--p5-accent);
     clip-path: var(--slab);
     transition: rotate var(--t-snap) var(--ease-snap), scale var(--t-snap) var(--ease-snap);
   }

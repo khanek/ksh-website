@@ -21,7 +21,7 @@ const pageDescription = description || t.meta.description;
     <meta charset="UTF-8" />
     <meta name="description" content={pageDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#e5001c" />
+    <meta name="theme-color" content="#00843b" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,7 +46,7 @@ const pageDescription = description || t.meta.description;
     <slot />
     <div class="wipe" aria-hidden="true" data-wipe>
       <span class="wipe__band wipe__band--black"></span>
-      <span class="wipe__band wipe__band--red"></span>
+      <span class="wipe__band wipe__band--accent"></span>
     </div>
     <script>
       import { initMenuRouter } from '../scripts/menu-router';
